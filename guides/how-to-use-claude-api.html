@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>How to Use the Claude API with Python (Free Guide) — getaitools.dev</title>
+  <title>How to Use the Claude API with Python (Free Guide) - getaitools.dev</title>
   <meta name="description" content="Step-by-step guide to getting started with the Claude API. Get your free API key, install the Python SDK, and run your first AI-powered script in under 10 minutes."/>
   <meta name="keywords" content="how to use claude api, claude api python tutorial, anthropic api key free, claude api getting started, anthropic sdk python"/>
   <link rel="canonical" href="https://getaitools.dev/guides/how-to-use-claude-api.html"/>
@@ -43,19 +43,19 @@
     <h1>How to Use the Claude API with Python</h1>
     <p class="tool-page-lead">Get your free Claude API key, install the Python SDK, and run your first AI-powered script in under 10 minutes. This is everything you need to run any tool on getaitools.dev.</p>
 
-    <h2>Step 1 — Get a free API key</h2>
+    <h2>Step 1 - Get a free API key</h2>
     <ol>
       <li>Go to <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a></li>
       <li>Sign up for a free account</li>
       <li>Go to <strong>API Keys</strong> → <strong>Create Key</strong></li>
-      <li>Copy the key — it starts with <code>sk-ant-</code></li>
+      <li>Copy the key - it starts with <code>sk-ant-</code></li>
     </ol>
-    <p>New accounts get free credits to start. After that, usage is pay-as-you-go. The cheapest model (claude-haiku) costs about <strong>$0.001 per 1,000 words</strong> — most scripts cost fractions of a cent to run.</p>
+    <p>New accounts get free credits to start. After that, usage is pay-as-you-go. The cheapest model (claude-haiku) costs about <strong>$0.001 per 1,000 words</strong> - most scripts cost fractions of a cent to run.</p>
 
-    <h2>Step 2 — Install the SDK</h2>
+    <h2>Step 2 - Install the SDK</h2>
     <pre>pip install anthropic</pre>
 
-    <h2>Step 3 — Run your first script</h2>
+    <h2>Step 3 - Run your first script</h2>
     <pre>import anthropic
 
 client = anthropic.Anthropic(api_key="sk-ant-YOUR_KEY_HERE")
@@ -72,7 +72,7 @@ print(message.content[0].text)</pre>
 
     <p>Run it with <code>python script.py</code> and you'll get a response in seconds.</p>
 
-    <h2>Step 4 — Use it with any tool on this site</h2>
+    <h2>Step 4 - Use it with any tool on this site</h2>
     <p>Every tool on getaitools.dev uses the same pattern. You pass your API key with <code>--api-key sk-ant-...</code>:</p>
     <pre># Example with the Reddit Scraper
 python scraper.py --api-key sk-ant-... --subreddit python --summarize
@@ -84,7 +84,7 @@ python summarizer.py --api-key sk-ant-... --pdf report.pdf
 python summarizer.py --api-key sk-ant-... --transcript meeting.vtt</pre>
 
     <h2>Which model should I use?</h2>
-    <p>All tools on this site default to <code>claude-haiku-4-5-20251001</code> — it's the fastest and cheapest model, and it's more than capable for summarization, classification, extraction, and generation tasks.</p>
+    <p>All tools on this site default to <code>claude-haiku-4-5-20251001</code> - it's the fastest and cheapest model, and it's more than capable for summarization, classification, extraction, and generation tasks.</p>
 
     <table style="width:100%;border-collapse:collapse;font-size:0.9rem;margin:1rem 0">
       <tr style="border-bottom:2px solid var(--line)">
