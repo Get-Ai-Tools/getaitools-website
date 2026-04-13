@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Job Listing Scraper (Python, AI Resume Matching) — getaitools.dev</title>
+  <meta name="description" content="Free open source job listing scraper. Scrapes Remotive and HN Who's Hiring. Optional AI fit scoring against your resume with Claude. Export to CSV or JSON."/>
+  <meta name="keywords" content="free job scraper, job listing scraper python, hacker news jobs scraper, remote job scraper free, ai resume matching"/>
+  <link rel="canonical" href="https://getaitools.dev/tools/job-scraper.html"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Job Listing Scraper","description":"Free open source job scraper with AI resume fit scoring.","programmingLanguage":"Python","codeRepository":"https://github.com/Get-Ai-Tools/job-scraper","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">GetAITools<span class="logo-dot">.dev</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#tools">Browse Tools</a>
+      <a href="../guides/how-to-use-claude-api.html">Guides</a>
+    </nav>
+    <a href="https://github.com/Get-Ai-Tools/job-scraper" target="_blank" class="nav-gh">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      View on GitHub
+    </a>
+  </div>
+</header>
+
+<div class="ad-bar"><span class="ad-label">Advertisement</span></div>
+
+<div class="tool-page">
+  <main class="tool-page-main">
+
+    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem">
+      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › Job Listing Scraper
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem">
+      <span style="font-size:2rem">💼</span>
+      <div>
+        <span style="font-size:0.65rem;font-weight:700;letter-spacing:1px;color:var(--ink3);background:var(--line2);border:1px solid var(--line);padding:2px 8px;border-radius:3px;text-transform:uppercase">Research</span>
+      </div>
+    </div>
+
+    <h1>Job Listing Scraper</h1>
+    <p class="tool-page-lead">Scrape remote job listings from Remotive and HN "Who's Hiring" threads. Filter by keyword. Optionally score each job against your resume using Claude AI to identify your best matches.</p>
+
+    <div class="gh-cta">
+      <h3>Download from GitHub</h3>
+      <p>Free and open source. No job board API key required for the default sources.</p>
+      <a href="https://github.com/Get-Ai-Tools/job-scraper" target="_blank" class="gh-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub →
+      </a>
+    </div>
+
+    <h2>What it does</h2>
+    <p>Scrapes job listings from Remotive's free public API and Hacker News "Who's Hiring" monthly threads. Filter results by keyword query. Add your resume as a plain text file and Claude AI will score each job 1–10 for fit, explain why, and flag which skills you're missing.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Scrape remote jobs from Remotive (free public API)</li>
+      <li>Scrape developer jobs from HN "Who's Hiring" threads</li>
+      <li>Filter by keyword query</li>
+      <li>AI fit scoring against your resume (1–10 score)</li>
+      <li>Filter results by minimum fit score</li>
+      <li>Export to CSV, JSON, or Markdown</li>
+    </ul>
+
+    <h2>Quick start</h2>
+    <pre>git clone https://github.com/Get-Ai-Tools/job-scraper
+cd job-scraper
+pip install -r requirements.txt
+
+# Basic scrape
+python scraper.py --query "python developer"
+
+# With AI resume matching
+python scraper.py --query "product manager" \
+  --api-key sk-ant-... --resume resume.txt
+
+# Only show jobs scoring 7 or above
+python scraper.py --query "devops" \
+  --api-key sk-ant-... --resume resume.txt --min-score 7</pre>
+
+    <h2>Requirements</h2>
+    <ul>
+      <li>Python 3.8+</li>
+      <li><code>requests</code>, <code>anthropic</code> (auto-installed)</li>
+      <li>Claude API key — only needed for AI fit scoring. <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">Get one free</a></li>
+    </ul>
+
+    <div class="faq-list">
+      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
+        <h3 itemprop="name">Does this require job board API keys?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">No. Remotive has a free public API that requires no authentication. HN "Who's Hiring" uses the public HN Firebase API. A Claude API key is only needed for AI fit scoring.</p>
+        </div>
+      </div>
+      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
+        <h3 itemprop="name">What format should my resume be in?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Plain text (.txt). Copy your resume content from a Word doc or PDF and save it as a .txt file. The AI will read it and compare your skills to each job description.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <aside class="tool-sidebar">
+    <div class="sidebar-box">
+      <h4>Requirements</h4>
+      <ul>
+        <li>Python 3.8+</li>
+        <li>requests, anthropic</li>
+        <li>Claude API key (optional)</li>
+        <li>No job board API key</li>
+      </ul>
+    </div>
+    <div class="sidebar-ad">
+      <div class="ad-rect">Advertisement</div>
+    </div>
+    <div class="sidebar-box related-tools">
+      <h4>Related Tools</h4>
+      <a href="reddit-scraper.html">Reddit Scraper</a>
+      <a href="hacker-news-digest.html">HN Daily Digest</a>
+      <a href="seo-keyword-extractor.html">SEO Keyword Extractor</a>
+      <a href="email-writer.html">AI Email Writer</a>
+    </div>
+    <div class="sidebar-ad">
+      <div class="ad-rect">Advertisement</div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><span class="footer-logo">GetAITools<span class="logo-dot">.dev</span></span><p>Free, open source AI tools.</p></div>
+    <nav class="footer-nav">
+      <div class="footer-col">
+        <strong>Tools</strong>
+        <a href="../index.html#tools">Browse all tools</a>
+        <a href="reddit-scraper.html">Reddit Scraper</a>
+        <a href="pdf-summarizer.html">PDF Summarizer</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">© 2026 getaitools.dev</div>
+</footer>
+</body>
+</html>

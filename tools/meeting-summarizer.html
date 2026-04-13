@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Meeting Transcript Summarizer (Python, AI) — getaitools.dev</title>
+  <meta name="description" content="Free open source meeting transcript summarizer. Extracts action items, decisions, and key points from .vtt, .srt, and .txt files using Claude AI. Download from GitHub."/>
+  <meta name="keywords" content="free meeting summarizer, meeting transcript summary, zoom transcript summary, vtt summarizer python, ai meeting notes free"/>
+  <link rel="canonical" href="https://getaitools.dev/tools/meeting-summarizer.html"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Meeting Transcript Summarizer","description":"Free open source meeting transcript summarizer powered by Claude AI.","programmingLanguage":"Python","codeRepository":"https://github.com/Get-Ai-Tools/meeting-summarizer","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">GetAITools<span class="logo-dot">.dev</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#tools">Browse Tools</a>
+      <a href="../guides/how-to-use-claude-api.html">Guides</a>
+    </nav>
+    <a href="https://github.com/Get-Ai-Tools/meeting-summarizer" target="_blank" class="nav-gh">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      View on GitHub
+    </a>
+  </div>
+</header>
+
+<div class="ad-bar"><span class="ad-label">Advertisement</span></div>
+
+<div class="tool-page">
+  <main class="tool-page-main">
+
+    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem">
+      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › Meeting Summarizer
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem">
+      <span style="font-size:2rem">🎙️</span>
+      <div>
+        <span style="font-size:0.65rem;font-weight:700;letter-spacing:1px;color:var(--ink3);background:var(--line2);border:1px solid var(--line);padding:2px 8px;border-radius:3px;text-transform:uppercase">Productivity</span>
+      </div>
+    </div>
+
+    <h1>Meeting Transcript Summarizer</h1>
+    <p class="tool-page-lead">Convert meeting transcripts into structured notes. Extracts action items, key decisions, discussion points, and open questions. Supports Zoom .vtt, Teams transcripts, and plain text. Batch process entire folders.</p>
+
+    <div class="gh-cta">
+      <h3>Download from GitHub</h3>
+      <p>Free and open source. No audio upload — just give it the transcript file from your video call.</p>
+      <a href="https://github.com/Get-Ai-Tools/meeting-summarizer" target="_blank" class="gh-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub →
+      </a>
+    </div>
+
+    <h2>What it does</h2>
+    <p>Reads a meeting transcript file (plain text, WebVTT from Zoom/Teams, or SRT), sends it to Claude AI, and generates structured meeting notes with action items, key decisions, discussion points, and open questions. Meeting sentiment is also detected (productive, tense, neutral).</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Parses .txt, .vtt (Zoom/Teams), and .srt transcript files</li>
+      <li>Extracts action items with owner names</li>
+      <li>Identifies key decisions and open questions</li>
+      <li>Detects meeting sentiment and participants</li>
+      <li>Batch process folders of transcripts</li>
+      <li>Export to Markdown, printable HTML, or JSON</li>
+    </ul>
+
+    <h2>Quick start</h2>
+    <pre>git clone https://github.com/Get-Ai-Tools/meeting-summarizer
+cd meeting-summarizer
+pip install -r requirements.txt
+
+# Summarize a plain text transcript
+python summarizer.py --api-key sk-ant-... --transcript meeting.txt
+
+# Summarize a Zoom .vtt file
+python summarizer.py --api-key sk-ant-... --transcript meeting.vtt
+
+# Batch process a folder, export HTML
+python summarizer.py --api-key sk-ant-... --folder ./meetings --output html</pre>
+
+    <h2>Getting transcripts from video calls</h2>
+    <ul>
+      <li><strong>Zoom:</strong> Enable Cloud Recording → download the .vtt transcript file</li>
+      <li><strong>Google Meet:</strong> Use Tactiq or similar Chrome extension</li>
+      <li><strong>Microsoft Teams:</strong> Recordings include auto-generated transcripts</li>
+    </ul>
+
+    <h2>Requirements</h2>
+    <ul>
+      <li>Python 3.8+</li>
+      <li><code>anthropic</code> (auto-installed)</li>
+      <li>Claude API key — get one free at <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a></li>
+    </ul>
+
+    <div class="faq-list">
+      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
+        <h3 itemprop="name">Does it support audio files?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">No — it works with transcript text files only (no audio processing). Your video call platform (Zoom, Teams, Meet) generates the transcript, and this tool summarizes it.</p>
+        </div>
+      </div>
+      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
+        <h3 itemprop="name">How long can the transcripts be?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">The tool handles transcripts of any length by sending the first 6,000 characters to Claude AI. For most 1-hour meetings this covers the full content. Very long meetings are summarized from the available portion.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <aside class="tool-sidebar">
+    <div class="sidebar-box">
+      <h4>Requirements</h4>
+      <ul>
+        <li>Python 3.8+</li>
+        <li>anthropic</li>
+        <li>Claude API key</li>
+        <li>Transcript file (.txt/.vtt/.srt)</li>
+      </ul>
+    </div>
+    <div class="sidebar-ad">
+      <div class="ad-rect">Advertisement</div>
+    </div>
+    <div class="sidebar-box related-tools">
+      <h4>Related Tools</h4>
+      <a href="pdf-summarizer.html">PDF Summarizer</a>
+      <a href="youtube-transcript.html">YouTube Transcript</a>
+      <a href="sheets-ai.html">Sheets AI</a>
+      <a href="email-writer.html">AI Email Writer</a>
+    </div>
+    <div class="sidebar-ad">
+      <div class="ad-rect">Advertisement</div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><span class="footer-logo">GetAITools<span class="logo-dot">.dev</span></span><p>Free, open source AI tools.</p></div>
+    <nav class="footer-nav">
+      <div class="footer-col">
+        <strong>Tools</strong>
+        <a href="../index.html#tools">Browse all tools</a>
+        <a href="reddit-scraper.html">Reddit Scraper</a>
+        <a href="pdf-summarizer.html">PDF Summarizer</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">© 2026 getaitools.dev</div>
+</footer>
+</body>
+</html>

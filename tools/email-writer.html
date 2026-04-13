@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free AI Cold Email Writer (Python, CSV Input) — getaitools.dev</title>
+  <meta name="description" content="Free open source AI cold email generator. Reads a CSV of leads and writes personalized cold emails with Claude AI. Export to CSV for mail merge. No subscription required."/>
+  <meta name="keywords" content="free cold email writer, ai cold email generator, cold email python, personalized cold email tool, cold outreach ai free"/>
+  <link rel="canonical" href="https://getaitools.dev/tools/email-writer.html"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"AI Cold Email Writer","description":"Free open source AI cold email generator. Reads leads CSV and personalizes emails with Claude.","programmingLanguage":"Python","codeRepository":"https://github.com/Get-Ai-Tools/cold-email-writer","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">GetAITools<span class="logo-dot">.dev</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#tools">Browse Tools</a>
+      <a href="../guides/how-to-use-claude-api.html">Guides</a>
+    </nav>
+    <a href="https://github.com/Get-Ai-Tools/cold-email-writer" target="_blank" class="nav-gh">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      View on GitHub
+    </a>
+  </div>
+</header>
+
+<div class="ad-bar"><span class="ad-label">Advertisement</span></div>
+
+<div class="tool-page">
+  <main class="tool-page-main">
+
+    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem">
+      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › AI Cold Email Writer
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem">
+      <span style="font-size:2rem">✉️</span>
+      <div>
+        <span style="font-size:0.65rem;font-weight:700;letter-spacing:1px;color:var(--ink3);background:var(--line2);border:1px solid var(--line);padding:2px 8px;border-radius:3px;text-transform:uppercase">Content</span>
+      </div>
+    </div>
+
+    <h1>AI Cold Email Writer</h1>
+    <p class="tool-page-lead">Read a CSV of leads, generate personalized cold emails for each one using Claude AI. Export to CSV for mail merge, JSON, or individual text files ready to send. 100% free to run locally.</p>
+
+    <div class="gh-cta">
+      <h3>Download from GitHub</h3>
+      <p>Free and open source. Works with any CSV — the more lead data you have, the better the personalization.</p>
+      <a href="https://github.com/Get-Ai-Tools/cold-email-writer" target="_blank" class="gh-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub →
+      </a>
+    </div>
+
+    <h2>What it does</h2>
+    <p>Reads any CSV with lead information (name, company, role, industry, etc.) and uses Claude AI to write a personalized cold email for each row. The AI references lead-specific details to avoid generic-sounding copy. Each email gets a compelling subject line and a single clear call to action.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Reads any CSV — any columns work as personalization signals</li>
+      <li>4 tone options: professional, friendly, direct, casual</li>
+      <li>5 goal options: demo, call, reply, trial, partnership</li>
+      <li>Generates subject line + body for each lead</li>
+      <li>Export to CSV (mail merge ready), JSON, or .txt files</li>
+      <li>Preview first 3 rows before running on all leads</li>
+    </ul>
+
+    <h2>CSV format</h2>
+    <pre>name,company,role,industry,email
+Sarah Chen,Acme Corp,Head of Marketing,SaaS,sarah@acme.com
+John Smith,Beta Inc,Founder,E-commerce,john@beta.com</pre>
+
+    <h2>Quick start</h2>
+    <pre>git clone https://github.com/Get-Ai-Tools/cold-email-writer
+cd cold-email-writer
+pip install -r requirements.txt
+
+# Generate emails for all leads
+python writer.py --api-key sk-ant-... --leads leads.csv
+
+# Friendly tone, goal: book a demo
+python writer.py --api-key sk-ant-... --leads leads.csv \
+  --product "ReportAI" --tone friendly --goal demo
+
+# Export as individual .txt files
+python writer.py --api-key sk-ant-... --leads leads.csv --output txt --out ./drafts</pre>
+
+    <h2>Requirements</h2>
+    <ul>
+      <li>Python 3.8+</li>
+      <li><code>anthropic</code> (auto-installed)</li>
+      <li>Claude API key — get one free at <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a></li>
+    </ul>
+
+    <div class="faq-list">
+      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
+        <h3 itemprop="name">How personalized are the emails?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">The AI references every column in your CSV — name, company, role, industry, and any other fields you include. The more context in your lead data, the more specific and relevant each email will be.</p>
+        </div>
+      </div>
+      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
+        <h3 itemprop="name">How much does it cost per email?</h3>
+        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Using claude-haiku, each email costs roughly $0.0002–$0.001. You can generate 1,000 personalized emails for under $1.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <aside class="tool-sidebar">
+    <div class="sidebar-box">
+      <h4>Requirements</h4>
+      <ul>
+        <li>Python 3.8+</li>
+        <li>anthropic</li>
+        <li>Claude API key</li>
+        <li>Leads CSV file</li>
+      </ul>
+    </div>
+    <div class="sidebar-ad">
+      <div class="ad-rect">Advertisement</div>
+    </div>
+    <div class="sidebar-box related-tools">
+      <h4>Related Tools</h4>
+      <a href="seo-keyword-extractor.html">SEO Keyword Extractor</a>
+      <a href="sheets-ai.html">Sheets AI</a>
+      <a href="meeting-summarizer.html">Meeting Summarizer</a>
+      <a href="reddit-scraper.html">Reddit Scraper</a>
+    </div>
+    <div class="sidebar-ad">
+      <div class="ad-rect">Advertisement</div>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><span class="footer-logo">GetAITools<span class="logo-dot">.dev</span></span><p>Free, open source AI tools.</p></div>
+    <nav class="footer-nav">
+      <div class="footer-col">
+        <strong>Tools</strong>
+        <a href="../index.html#tools">Browse all tools</a>
+        <a href="reddit-scraper.html">Reddit Scraper</a>
+        <a href="pdf-summarizer.html">PDF Summarizer</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">© 2026 getaitools.dev</div>
+</footer>
+</body>
+</html>
