@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Use the Claude API with Python (Free Guide) — getaitools.dev</title>
+  <meta name="description" content="Step-by-step guide to getting started with the Claude API. Get your free API key, install the Python SDK, and run your first AI-powered script in under 10 minutes."/>
+  <meta name="keywords" content="how to use claude api, claude api python tutorial, anthropic api key free, claude api getting started, anthropic sdk python"/>
+  <link rel="canonical" href="https://getaitools.dev/guides/how-to-use-claude-api.html"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"How to Use the Claude API with Python","description":"Step-by-step guide to getting started with the Claude API in Python.","author":{"@type":"Organization","name":"getaitools.dev"},"publisher":{"@type":"Organization","name":"getaitools.dev"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">GetAITools<span class="logo-dot">.dev</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#tools">Browse Tools</a>
+      <a href="how-to-use-claude-api.html" style="color:var(--green)">Guides</a>
+    </nav>
+    <a href="https://github.com/Get-Ai-Tools" target="_blank" class="nav-gh">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<div class="ad-bar"><span class="ad-label">Advertisement</span></div>
+
+<div class="tool-page">
+  <main class="tool-page-main">
+
+    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem">
+      <a href="../index.html" style="color:var(--ink4)">Home</a> › Guides › How to use the Claude API
+    </nav>
+
+    <h1>How to Use the Claude API with Python</h1>
+    <p class="tool-page-lead">Get your free Claude API key, install the Python SDK, and run your first AI-powered script in under 10 minutes. This is everything you need to run any tool on getaitools.dev.</p>
+
+    <h2>Step 1 — Get a free API key</h2>
+    <ol>
+      <li>Go to <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a></li>
+      <li>Sign up for a free account</li>
+      <li>Go to <strong>API Keys</strong> → <strong>Create Key</strong></li>
+      <li>Copy the key — it starts with <code>sk-ant-</code></li>
+    </ol>
+    <p>New accounts get free credits to start. After that, usage is pay-as-you-go. The cheapest model (claude-haiku) costs about <strong>$0.001 per 1,000 words</strong> — most scripts cost fractions of a cent to run.</p>
+
+    <h2>Step 2 — Install the SDK</h2>
+    <pre>pip install anthropic</pre>
+
+    <h2>Step 3 — Run your first script</h2>
+    <pre>import anthropic
+
+client = anthropic.Anthropic(api_key="sk-ant-YOUR_KEY_HERE")
+
+message = client.messages.create(
+    model="claude-haiku-4-5-20251001",
+    max_tokens=200,
+    messages=[
+        {"role": "user", "content": "Summarize what the Claude API is in 2 sentences."}
+    ]
+)
+
+print(message.content[0].text)</pre>
+
+    <p>Run it with <code>python script.py</code> and you'll get a response in seconds.</p>
+
+    <h2>Step 4 — Use it with any tool on this site</h2>
+    <p>Every tool on getaitools.dev uses the same pattern. You pass your API key with <code>--api-key sk-ant-...</code>:</p>
+    <pre># Example with the Reddit Scraper
+python scraper.py --api-key sk-ant-... --subreddit python --summarize
+
+# Example with the PDF Summarizer
+python summarizer.py --api-key sk-ant-... --pdf report.pdf
+
+# Example with the Meeting Summarizer
+python summarizer.py --api-key sk-ant-... --transcript meeting.vtt</pre>
+
+    <h2>Which model should I use?</h2>
+    <p>All tools on this site default to <code>claude-haiku-4-5-20251001</code> — it's the fastest and cheapest model, and it's more than capable for summarization, classification, extraction, and generation tasks.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.9rem;margin:1rem 0">
+      <tr style="border-bottom:2px solid var(--line)">
+        <th style="text-align:left;padding:0.5rem">Model</th>
+        <th style="text-align:left;padding:0.5rem">Speed</th>
+        <th style="text-align:left;padding:0.5rem">Cost</th>
+        <th style="text-align:left;padding:0.5rem">Best for</th>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line2)">
+        <td style="padding:0.5rem"><code>claude-haiku-4-5-20251001</code></td>
+        <td style="padding:0.5rem">Fastest</td>
+        <td style="padding:0.5rem">Cheapest</td>
+        <td style="padding:0.5rem">Bulk tasks, classification, extraction</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line2)">
+        <td style="padding:0.5rem"><code>claude-sonnet-4-6</code></td>
+        <td style="padding:0.5rem">Fast</td>
+        <td style="padding:0.5rem">Mid</td>
+        <td style="padding:0.5rem">Complex writing, analysis</td>
+      </tr>
+      <tr>
+        <td style="padding:0.5rem"><code>claude-opus-4-6</code></td>
+        <td style="padding:0.5rem">Slower</td>
+        <td style="padding:0.5rem">Higher</td>
+        <td style="padding:0.5rem">Most complex tasks</td>
+      </tr>
+    </table>
+
+    <h2>Keep your API key safe</h2>
+    <p>Never hardcode your key in a script you'll share. Instead, use an environment variable:</p>
+    <pre># Set it once in your terminal
+export ANTHROPIC_API_KEY="sk-ant-..."
+
+# Then in Python
+import os, anthropic
+client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])</pre>
+
+    <h2>Ready to use a tool?</h2>
+    <p>Browse all free tools → <a href="../index.html#tools" style="color:var(--green)">getaitools.dev/tools</a></p>
+
+  </main>
+
+  <aside class="tool-sidebar">
+    <div class="sidebar-box">
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">Get API key</a></li>
+        <li><a href="../index.html#tools">Browse tools</a></li>
+        <li><a href="../tools/reddit-scraper.html">Reddit Scraper</a></li>
+        <li><a href="../tools/pdf-summarizer.html">PDF Summarizer</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-ad">
+      <div class="ad-rect">Advertisement</div>
+    </div>
+    <div class="sidebar-box">
+      <h4>Cost estimate</h4>
+      <ul>
+        <li>1,000 summaries ≈ $0.10</li>
+        <li>Daily HN digest ≈ $0.005</li>
+        <li>100 cold emails ≈ $0.05</li>
+        <li>10-page PDF ≈ $0.003</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><span class="footer-logo">GetAITools<span class="logo-dot">.dev</span></span><p>Free, open source AI tools.</p></div>
+    <nav class="footer-nav">
+      <div class="footer-col">
+        <strong>Tools</strong>
+        <a href="../index.html#tools">Browse all tools</a>
+        <a href="../tools/reddit-scraper.html">Reddit Scraper</a>
+        <a href="../tools/pdf-summarizer.html">PDF Summarizer</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">© 2026 getaitools.dev</div>
+</footer>
+</body>
+</html>
