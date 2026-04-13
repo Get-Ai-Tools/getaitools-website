@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>How to Use the Claude API with Python (Free Guide) - getaitools.dev</title>
-  <meta name="description" content="Step-by-step guide to getting started with the Claude API. Get your free API key, install the Python SDK, and run your first AI-powered script in under 10 minutes."/>
-  <meta name="keywords" content="how to use claude api, claude api python tutorial, anthropic api key free, claude api getting started, anthropic sdk python"/>
+  <title>How to Use the Claude API with Python - Complete Guide 2026 | GetAITools.dev</title>
+  <meta name="description" content="Step-by-step guide to the Claude API. Get your API key, understand pricing, install the Python SDK, and build your first AI script. Includes model comparison and real cost estimates."/>
+  <meta name="keywords" content="how to use claude api, claude api python tutorial, anthropic api key, claude api pricing, anthropic sdk python, claude haiku api"/>
   <link rel="canonical" href="https://getaitools.dev/guides/how-to-use-claude-api.html"/>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"How to Use the Claude API with Python","description":"Step-by-step guide to getting started with the Claude API in Python.","author":{"@type":"Organization","name":"getaitools.dev"},"publisher":{"@type":"Organization","name":"getaitools.dev"}}
+  {"@context":"https://schema.org","@type":"Article","headline":"How to Use the Claude API with Python - Complete Guide","description":"Step-by-step guide to getting started with the Claude API in Python. Covers API keys, pricing, models, and code examples.","author":{"@type":"Organization","name":"GetAITools.dev"},"publisher":{"@type":"Organization","name":"GetAITools.dev"},"datePublished":"2026-04-13","dateModified":"2026-04-13"}
   </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/></noscript>
   <link rel="stylesheet" href="../style.css"/>
 </head>
 <body>
@@ -22,7 +23,7 @@
     <a href="../index.html" class="logo">GetAITools<span class="logo-dot">.dev</span></a>
     <nav class="nav-links">
       <a href="../index.html#tools">Browse Tools</a>
-      <a href="how-to-use-claude-api.html" style="color:var(--green)">Guides</a>
+      <a href="index.html" style="color:var(--green)">Guides</a>
     </nav>
     <a href="https://github.com/Get-Ai-Tools" target="_blank" class="nav-gh">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -37,25 +38,37 @@
   <main class="tool-page-main">
 
     <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem">
-      <a href="../index.html" style="color:var(--ink4)">Home</a> › Guides › How to use the Claude API
+      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="index.html" style="color:var(--ink4)">Guides</a> › How to use the Claude API
     </nav>
 
     <h1>How to Use the Claude API with Python</h1>
-    <p class="tool-page-lead">Get your free Claude API key, install the Python SDK, and run your first AI-powered script in under 10 minutes. This is everything you need to run any tool on getaitools.dev.</p>
+    <p class="tool-page-lead">The complete beginner guide. Get your API key, understand what things actually cost, and run your first AI script in 10 minutes. No prior AI experience needed.</p>
 
-    <h2>Step 1 - Get a free API key</h2>
+    <div style="background:var(--line2);border:1px solid var(--line);border-radius:6px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:0.9rem">
+      <strong>What you'll need:</strong> A computer, Python 3.8+ installed, and a credit card for the API account (you won't be charged until you exceed $5 of usage, and most scripts cost fractions of a cent).
+    </div>
+
+    <h2>What is the Claude API?</h2>
+    <p>Claude is an AI model made by Anthropic. The API lets you send text to Claude and get a response back - from your own code, on your own machine, without going through any middleman SaaS tool.</p>
+    <p>Every "AI-powered" SaaS tool you've seen that charges $20-99/month is doing exactly this - calling the Claude API (or OpenAI's API) behind the scenes, marking it up 50-1000x, and charging you a subscription. When you use the API directly, you cut out the middleman and pay only the raw cost: around <strong>$0.001 per 1,000 words</strong>.</p>
+
+    <h2>Step 1 - Get your free API key</h2>
     <ol>
-      <li>Go to <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a></li>
-      <li>Sign up for a free account</li>
-      <li>Go to <strong>API Keys</strong> → <strong>Create Key</strong></li>
-      <li>Copy the key - it starts with <code>sk-ant-</code></li>
+      <li>Go to <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a> and create an account</li>
+      <li>Add a payment method (required, but you won't be charged until you use $5+ worth)</li>
+      <li>Go to <strong>API Keys</strong> in the left sidebar</li>
+      <li>Click <strong>Create Key</strong>, give it a name, copy it</li>
+      <li>Your key starts with <code>sk-ant-api03-...</code> - treat it like a password</li>
     </ol>
-    <p>New accounts get free credits to start. After that, usage is pay-as-you-go. The cheapest model (claude-haiku) costs about <strong>$0.001 per 1,000 words</strong> - most scripts cost fractions of a cent to run.</p>
+    <p>New accounts receive free credits. After that it's strictly pay-as-you-go - no monthly fee, no minimum spend. If you run one script a week, your bill might be $0.02/month.</p>
 
-    <h2>Step 2 - Install the SDK</h2>
+    <h2>Step 2 - Install Python and the SDK</h2>
+    <p>If you don't have Python yet, download it from <a href="https://python.org" target="_blank" style="color:var(--green)">python.org</a> (get 3.10 or newer). Then install the Anthropic SDK:</p>
     <pre>pip install anthropic</pre>
+    <p>That's the only dependency you need to call Claude. Individual tools may require extra packages (like <code>pdfplumber</code> for the PDF tool) but the core SDK is just one install.</p>
 
     <h2>Step 3 - Run your first script</h2>
+    <p>Create a file called <code>hello.py</code> and paste this:</p>
     <pre>import anthropic
 
 client = anthropic.Anthropic(api_key="sk-ant-YOUR_KEY_HERE")
@@ -64,66 +77,121 @@ message = client.messages.create(
     model="claude-haiku-4-5-20251001",
     max_tokens=200,
     messages=[
-        {"role": "user", "content": "Summarize what the Claude API is in 2 sentences."}
+        {"role": "user", "content": "What is the Claude API, in 2 sentences?"}
     ]
 )
 
 print(message.content[0].text)</pre>
+    <p>Run it:</p>
+    <pre>python hello.py</pre>
+    <p>You'll get a response in 1-2 seconds. That API call cost approximately $0.00003 - three thousandths of a cent.</p>
 
-    <p>Run it with <code>python script.py</code> and you'll get a response in seconds.</p>
-
-    <h2>Step 4 - Use it with any tool on this site</h2>
-    <p>Every tool on getaitools.dev uses the same pattern. You pass your API key with <code>--api-key sk-ant-...</code>:</p>
-    <pre># Example with the Reddit Scraper
-python scraper.py --api-key sk-ant-... --subreddit python --summarize
-
-# Example with the PDF Summarizer
-python summarizer.py --api-key sk-ant-... --pdf report.pdf
-
-# Example with the Meeting Summarizer
-python summarizer.py --api-key sk-ant-... --transcript meeting.vtt</pre>
-
-    <h2>Which model should I use?</h2>
-    <p>All tools on this site default to <code>claude-haiku-4-5-20251001</code> - it's the fastest and cheapest model, and it's more than capable for summarization, classification, extraction, and generation tasks.</p>
-
-    <table style="width:100%;border-collapse:collapse;font-size:0.9rem;margin:1rem 0">
-      <tr style="border-bottom:2px solid var(--line)">
-        <th style="text-align:left;padding:0.5rem">Model</th>
-        <th style="text-align:left;padding:0.5rem">Speed</th>
-        <th style="text-align:left;padding:0.5rem">Cost</th>
-        <th style="text-align:left;padding:0.5rem">Best for</th>
-      </tr>
-      <tr style="border-bottom:1px solid var(--line2)">
-        <td style="padding:0.5rem"><code>claude-haiku-4-5-20251001</code></td>
-        <td style="padding:0.5rem">Fastest</td>
-        <td style="padding:0.5rem">Cheapest</td>
-        <td style="padding:0.5rem">Bulk tasks, classification, extraction</td>
-      </tr>
-      <tr style="border-bottom:1px solid var(--line2)">
-        <td style="padding:0.5rem"><code>claude-sonnet-4-6</code></td>
-        <td style="padding:0.5rem">Fast</td>
-        <td style="padding:0.5rem">Mid</td>
-        <td style="padding:0.5rem">Complex writing, analysis</td>
-      </tr>
-      <tr>
-        <td style="padding:0.5rem"><code>claude-opus-4-6</code></td>
-        <td style="padding:0.5rem">Slower</td>
-        <td style="padding:0.5rem">Higher</td>
-        <td style="padding:0.5rem">Most complex tasks</td>
-      </tr>
-    </table>
-
-    <h2>Keep your API key safe</h2>
-    <p>Never hardcode your key in a script you'll share. Instead, use an environment variable:</p>
-    <pre># Set it once in your terminal
+    <h2>Step 4 - Keep your API key safe</h2>
+    <p>Never paste your key directly into a script you share or commit to GitHub. Use an environment variable instead:</p>
+    <pre># On Mac/Linux - add to ~/.bashrc or ~/.zshrc
 export ANTHROPIC_API_KEY="sk-ant-..."
 
-# Then in Python
-import os, anthropic
-client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])</pre>
+# On Windows (Command Prompt)
+set ANTHROPIC_API_KEY=sk-ant-...
 
-    <h2>Ready to use a tool?</h2>
-    <p>Browse all free tools → <a href="../index.html#tools" style="color:var(--green)">getaitools.dev/tools</a></p>
+# On Windows (PowerShell)
+$env:ANTHROPIC_API_KEY="sk-ant-..."</pre>
+    <p>Then in your Python code:</p>
+    <pre>import os
+import anthropic
+
+client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])</pre>
+    <p>All tools on this site accept <code>--api-key</code> as a command line argument so your key never touches the source code:</p>
+    <pre>python scraper.py --api-key sk-ant-...</pre>
+
+    <h2>Which model should I use?</h2>
+    <p>Anthropic offers several Claude models at different price points. For most everyday tasks - summarization, classification, extraction, writing - <strong>claude-haiku is the right choice</strong>. It's dramatically cheaper and still extremely capable.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;margin:1rem 0">
+      <tr style="border-bottom:2px solid var(--line);background:var(--line2)">
+        <th style="text-align:left;padding:0.6rem">Model</th>
+        <th style="text-align:left;padding:0.6rem">Speed</th>
+        <th style="text-align:left;padding:0.6rem">Cost per 1M tokens</th>
+        <th style="text-align:left;padding:0.6rem">Best for</th>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line2)">
+        <td style="padding:0.6rem"><code>claude-haiku-4-5-20251001</code></td>
+        <td style="padding:0.6rem">Fastest</td>
+        <td style="padding:0.6rem">~$0.80 in / $4 out</td>
+        <td style="padding:0.6rem">Bulk tasks, summaries, classification, extraction</td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line2)">
+        <td style="padding:0.6rem"><code>claude-sonnet-4-6</code></td>
+        <td style="padding:0.6rem">Fast</td>
+        <td style="padding:0.6rem">~$3 in / $15 out</td>
+        <td style="padding:0.6rem">Complex writing, nuanced analysis, coding</td>
+      </tr>
+      <tr>
+        <td style="padding:0.6rem"><code>claude-opus-4-6</code></td>
+        <td style="padding:0.6rem">Slower</td>
+        <td style="padding:0.6rem">~$15 in / $75 out</td>
+        <td style="padding:0.6rem">Hardest tasks, deep reasoning, research</td>
+      </tr>
+    </table>
+    <p>A "token" is roughly 0.75 words. A typical 500-word article is about 700 tokens. At haiku prices, summarizing it costs around $0.003 - less than a third of a cent.</p>
+
+    <h2>Real cost examples</h2>
+    <p>Here's what common tasks actually cost when you call the API directly:</p>
+    <ul>
+      <li><strong>Summarize a 10-page PDF</strong> - ~$0.003</li>
+      <li><strong>Daily HN digest (10 stories)</strong> - ~$0.005</li>
+      <li><strong>100 personalized cold emails</strong> - ~$0.05</li>
+      <li><strong>Classify 1,000 rows of CSV data</strong> - ~$0.10</li>
+      <li><strong>Sentiment analysis on 500 news headlines</strong> - ~$0.02</li>
+    </ul>
+    <p>Compare that to a SaaS tool doing the same thing for $29/month. The math is brutal: you'd need to run the equivalent of <strong>thousands of operations per month</strong> before it made financial sense to pay for a subscription tool.</p>
+
+    <h2>How to use it with any tool on this site</h2>
+    <p>Every tool on getaitools.dev accepts <code>--api-key</code>. Clone the repo, install requirements, run the script:</p>
+    <pre># Reddit Scraper with AI summaries
+git clone https://github.com/Get-Ai-Tools/reddit-scraper
+cd reddit-scraper
+pip install -r requirements.txt
+python scraper.py --subreddit python --summarize --api-key sk-ant-...
+
+# PDF Summarizer
+git clone https://github.com/Get-Ai-Tools/pdf-summarizer
+cd pdf-summarizer
+pip install -r requirements.txt
+python summarizer.py --pdf report.pdf --api-key sk-ant-...
+
+# Cold Email Writer
+git clone https://github.com/Get-Ai-Tools/cold-email-writer
+cd cold-email-writer
+pip install -r requirements.txt
+python writer.py --leads leads.csv --api-key sk-ant-...</pre>
+
+    <h2>Common errors and fixes</h2>
+    <div class="faq-list">
+      <div class="faq-q">
+        <h3>AuthenticationError: invalid x-api-key</h3>
+        <p>Your API key is wrong or has extra spaces. Copy it fresh from console.anthropic.com and make sure there's no whitespace.</p>
+      </div>
+      <div class="faq-q">
+        <h3>RateLimitError</h3>
+        <p>You're sending requests too fast. New accounts have lower rate limits. Add <code>time.sleep(0.5)</code> between requests or upgrade your usage tier in the Anthropic console.</p>
+      </div>
+      <div class="faq-q">
+        <h3>ModuleNotFoundError: No module named 'anthropic'</h3>
+        <p>Run <code>pip install anthropic</code> in the same environment where you're running the script. If you use multiple Python versions, try <code>pip3 install anthropic</code>.</p>
+      </div>
+      <div class="faq-q">
+        <h3>My script ran but I got charged nothing?</h3>
+        <p>Normal - small scripts cost so little they round to $0.00 in the billing dashboard. Check the Usage tab in console.anthropic.com for actual token counts.</p>
+      </div>
+    </div>
+
+    <h2>Next steps</h2>
+    <ul>
+      <li><a href="why-ai-saas-is-overpriced.html" style="color:var(--green)">Why AI SaaS tools are overpriced - and how to stop paying for them</a></li>
+      <li><a href="../index.html#tools" style="color:var(--green)">Browse all 12 free tools</a></li>
+      <li><a href="https://docs.anthropic.com" target="_blank" style="color:var(--green)">Official Claude API documentation</a></li>
+    </ul>
 
   </main>
 
@@ -131,23 +199,33 @@ client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])</pre>
     <div class="sidebar-box">
       <h4>Quick links</h4>
       <ul>
-        <li><a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">Get API key</a></li>
-        <li><a href="../index.html#tools">Browse tools</a></li>
-        <li><a href="../tools/reddit-scraper.html">Reddit Scraper</a></li>
-        <li><a href="../tools/pdf-summarizer.html">PDF Summarizer</a></li>
+        <li><a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">Get API key free</a></li>
+        <li><a href="../index.html#tools">Browse all tools</a></li>
+        <li><a href="why-ai-saas-is-overpriced.html">Why SaaS is overpriced</a></li>
       </ul>
     </div>
     <div class="sidebar-ad">
       <div class="ad-rect">Advertisement</div>
     </div>
     <div class="sidebar-box">
-      <h4>Cost estimate</h4>
+      <h4>Real cost estimates</h4>
       <ul>
-        <li>1,000 summaries ≈ $0.10</li>
-        <li>Daily HN digest ≈ $0.005</li>
-        <li>100 cold emails ≈ $0.05</li>
-        <li>10-page PDF ≈ $0.003</li>
+        <li>1,000 summaries ~$0.10</li>
+        <li>Daily HN digest ~$0.005</li>
+        <li>100 cold emails ~$0.05</li>
+        <li>10-page PDF ~$0.003</li>
+        <li>500 sentiment labels ~$0.02</li>
       </ul>
+    </div>
+    <div class="sidebar-ad">
+      <div class="ad-rect">Advertisement</div>
+    </div>
+    <div class="sidebar-box related-tools">
+      <h4>Popular tools</h4>
+      <a href="../tools/reddit-scraper.html">Reddit Scraper</a>
+      <a href="../tools/pdf-summarizer.html">PDF Summarizer</a>
+      <a href="../tools/email-writer.html">Cold Email Writer</a>
+      <a href="../tools/sheets-ai.html" style="display:none">Sheets AI</a>
     </div>
   </aside>
 </div>
@@ -156,6 +234,11 @@ client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])</pre>
   <div class="footer-inner">
     <div><span class="footer-logo">GetAITools<span class="logo-dot">.dev</span></span><p>Free, open source AI tools.</p></div>
     <nav class="footer-nav">
+      <div class="footer-col">
+        <strong>Guides</strong>
+        <a href="how-to-use-claude-api.html">Claude API guide</a>
+        <a href="why-ai-saas-is-overpriced.html">Why SaaS is overpriced</a>
+      </div>
       <div class="footer-col">
         <strong>Tools</strong>
         <a href="../index.html#tools">Browse all tools</a>
