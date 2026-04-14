@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How to Run Python Scripts - Beginner Guide (Windows, Mac, Linux) | GetAITools.dev</title>
+  <meta name="description" content="Step-by-step guide to running Python scripts on Windows, Mac, and Linux. Install Python, use pip, set environment variables, and run your first script in under 10 minutes."/>
+  <meta name="keywords" content="how to run python scripts, run python script windows, run python script mac, install python, pip install, python beginners guide"/>
+  <link rel="canonical" href="https://getaitools.dev/guides/how-to-run-python-scripts.html"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"How to Run Python Scripts - Beginner Guide","description":"Step-by-step guide to running Python scripts on Windows, Mac, and Linux. Install Python, use pip, and run your first script.","author":{"@type":"Organization","name":"GetAITools.dev"},"publisher":{"@type":"Organization","name":"GetAITools.dev"},"datePublished":"2026-04-14","dateModified":"2026-04-14"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How do I run a Python script on Windows?","acceptedAnswer":{"@type":"Answer","text":"Open Command Prompt, navigate to the folder with your script using cd, then type python script.py and press Enter."}},
+    {"@type":"Question","name":"What is pip and how do I use it?","acceptedAnswer":{"@type":"Answer","text":"pip is Python's package manager. Run pip install package-name in your terminal to install any library. For a requirements.txt file, run pip install -r requirements.txt."}},
+    {"@type":"Question","name":"How do I set an environment variable for an API key?","acceptedAnswer":{"@type":"Answer","text":"On Windows: set ANTHROPIC_API_KEY=your-key. On Mac/Linux: export ANTHROPIC_API_KEY=your-key. Or create a .env file in your project folder."}}
+  ]}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/></noscript>
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">GetAITools<span class="logo-dot">.dev</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#tools">Browse Tools</a>
+      <a href="index.html" style="color:var(--green)">Guides</a>
+    </nav>
+    <a href="https://github.com/Get-Ai-Tools" target="_blank" class="nav-gh">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<div class="ad-bar"><span class="ad-label">Advertisement</span></div>
+
+<div class="tool-page">
+  <main class="tool-page-main">
+
+    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem">
+      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="index.html" style="color:var(--ink4)">Guides</a> › How to run Python scripts
+    </nav>
+
+    <h1>How to Run Python Scripts</h1>
+    <p class="tool-page-lead">A beginner guide for Windows, Mac, and Linux. Install Python, open a terminal, install dependencies, and run your first script in under 10 minutes.</p>
+
+    <div style="background:var(--line2);border:1px solid var(--line);border-radius:6px;padding:1rem 1.25rem;margin:1.5rem 0;font-size:0.9rem">
+      <strong>All tools on this site</strong> are Python scripts. This guide shows you exactly how to get them running, even if you've never used Python before.
+    </div>
+
+    <h2>Step 1 - Install Python</h2>
+    <p>First check if Python is already installed. Open a terminal (see Step 2) and run:</p>
+    <pre>python --version</pre>
+    <p>If you see <code>Python 3.x.x</code> you're good. If not, install it:</p>
+    <ul>
+      <li><strong>Windows</strong> - Download from <a href="https://python.org/downloads" target="_blank" style="color:var(--green)">python.org/downloads</a>. During install, check "Add Python to PATH".</li>
+      <li><strong>Mac</strong> - Install via Homebrew: <code>brew install python3</code>. Or download from python.org.</li>
+      <li><strong>Linux</strong> - Usually pre-installed. If not: <code>sudo apt install python3 python3-pip</code></li>
+    </ul>
+
+    <h2>Step 2 - Open a terminal</h2>
+    <ul>
+      <li><strong>Windows</strong> - Press <code>Win + R</code>, type <code>cmd</code>, press Enter. Or search "Command Prompt" in the Start menu.</li>
+      <li><strong>Mac</strong> - Press <code>Cmd + Space</code>, type "Terminal", press Enter.</li>
+      <li><strong>Linux</strong> - Press <code>Ctrl + Alt + T</code>.</li>
+    </ul>
+
+    <h2>Step 3 - Clone or download the script</h2>
+    <p>Every tool on this site is on GitHub. You have two options:</p>
+
+    <p><strong>Option A - Clone with git (recommended):</strong></p>
+    <pre>git clone https://github.com/Get-Ai-Tools/reddit-scraper
+cd reddit-scraper</pre>
+
+    <p><strong>Option B - Download as ZIP:</strong> Go to the GitHub page, click the green "Code" button, then "Download ZIP". Unzip it, then navigate to the folder in your terminal:</p>
+    <pre># Windows
+cd C:\Users\YourName\Downloads\reddit-scraper
+
+# Mac / Linux
+cd ~/Downloads/reddit-scraper</pre>
+
+    <h2>Step 4 - Install dependencies</h2>
+    <p>Every tool comes with a <code>requirements.txt</code> file listing the libraries it needs. Install them all with one command:</p>
+    <pre>pip install -r requirements.txt</pre>
+    <p>This may take a minute. You'll see packages being downloaded and installed.</p>
+
+    <h2>Step 5 - Set your API key</h2>
+    <p>Most tools need a Claude API key for the AI features. The safest way is an environment variable so the key never ends up in your code.</p>
+
+    <p><strong>Windows (Command Prompt):</strong></p>
+    <pre>set ANTHROPIC_API_KEY=sk-ant-your-key-here</pre>
+
+    <p><strong>Mac / Linux:</strong></p>
+    <pre>export ANTHROPIC_API_KEY=sk-ant-your-key-here</pre>
+
+    <p><strong>Or create a <code>.env</code> file</strong> in the project folder:</p>
+    <pre>ANTHROPIC_API_KEY=sk-ant-your-key-here</pre>
+    <p>The scripts on this site will automatically load <code>.env</code> files via <code>python-dotenv</code>.</p>
+
+    <p>Don't have a Claude API key? Get one free at <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a>. Many tools work without any API key at all.</p>
+
+    <h2>Step 6 - Run the script</h2>
+    <p>Each tool's page shows the exact command to run. Generally it looks like:</p>
+    <pre>python script.py --option value</pre>
+
+    <p>For example, the Reddit scraper:</p>
+    <pre>python scraper.py --subreddit python --sort top --limit 50</pre>
+
+    <h2>Common errors and fixes</h2>
+
+    <div class="faq-list">
+      <div class="faq-q">
+        <h3>"python is not recognized" (Windows)</h3>
+        <p>Python wasn't added to PATH during install. Either reinstall Python and check "Add Python to PATH", or try <code>python3</code> instead of <code>python</code>.</p>
+      </div>
+      <div class="faq-q">
+        <h3>"ModuleNotFoundError: No module named X"</h3>
+        <p>A dependency isn't installed. Run <code>pip install -r requirements.txt</code> again. If a specific module is missing, run <code>pip install module-name</code>.</p>
+      </div>
+      <div class="faq-q">
+        <h3>"pip is not recognized"</h3>
+        <p>Try <code>pip3</code> instead of <code>pip</code>. On Windows, try <code>python -m pip install -r requirements.txt</code>.</p>
+      </div>
+      <div class="faq-q">
+        <h3>"Permission denied" (Mac/Linux)</h3>
+        <p>Prefix with <code>sudo</code>: <code>sudo pip install -r requirements.txt</code>. Or better, use a virtual environment (see below).</p>
+      </div>
+    </div>
+
+    <h2>Optional: Use a virtual environment</h2>
+    <p>Virtual environments keep each project's dependencies separate. Good practice for serious use:</p>
+    <pre># Create a virtual environment
+python -m venv venv
+
+# Activate it (Mac/Linux)
+source venv/bin/activate
+
+# Activate it (Windows)
+venv\Scripts\activate
+
+# Now install dependencies
+pip install -r requirements.txt
+
+# When done, deactivate
+deactivate</pre>
+
+    <div style="margin-top:2.5rem;padding:1.25rem;background:var(--line2);border:1px solid var(--line);border-radius:8px">
+      <strong>Ready to run a tool?</strong>
+      <p style="margin:0.5rem 0 1rem">Browse all 12 free AI tools - each page has copy-paste commands to get started.</p>
+      <a href="../index.html#tools" style="display:inline-block;background:var(--ink);color:var(--white);font-size:0.85rem;font-weight:600;padding:0.6rem 1.25rem;border-radius:6px">Browse tools</a>
+    </div>
+
+  </main>
+
+  <aside class="tool-sidebar">
+    <div class="sidebar-box">
+      <h4>Quick reference</h4>
+      <ul>
+        <li>Check Python: <code>python --version</code></li>
+        <li>Install deps: <code>pip install -r requirements.txt</code></li>
+        <li>Set API key: <code>export KEY=...</code></li>
+        <li>Run script: <code>python script.py</code></li>
+      </ul>
+    </div>
+    <div class="sidebar-ad"><div class="ad-rect">Advertisement</div></div>
+    <div class="sidebar-box related-tools">
+      <h4>Related guides</h4>
+      <a href="how-to-use-claude-api.html">How to use the Claude API</a>
+      <a href="why-ai-saas-is-overpriced.html">Why AI SaaS is overpriced</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><span class="footer-logo">GetAITools<span class="logo-dot">.dev</span></span><p>Free, open source AI tools.</p></div>
+    <nav class="footer-nav">
+      <div class="footer-col">
+        <strong>Guides</strong>
+        <a href="how-to-use-claude-api.html">Claude API guide</a>
+        <a href="why-ai-saas-is-overpriced.html">Why SaaS is overpriced</a>
+        <a href="how-to-run-python-scripts.html">Run Python scripts</a>
+      </div>
+      <div class="footer-col">
+        <strong>Tools</strong>
+        <a href="../index.html#tools">Browse all tools</a>
+        <a href="../tools/reddit-scraper.html">Reddit Scraper</a>
+        <a href="../tools/pdf-summarizer.html">PDF Summarizer</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">© 2026 getaitools.dev</div>
+</footer>
+</body>
+</html>
