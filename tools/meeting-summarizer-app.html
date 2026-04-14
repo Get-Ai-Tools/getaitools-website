@@ -366,5 +366,54 @@ function setProgress(pct) {
   document.getElementById('progress-bar').style.width = pct + '%';
 }
 </script>
+<!-- Google Analytics (loads only after consent) -->
+<script>
+function loadGA() {
+  if (localStorage.getItem('ga_consent') !== 'yes') return;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6WM4B858T3';
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-6WM4B858T3');
+}
+loadGA();
+</script>
+<style>
+#consent-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+  background: var(--ink); color: #fff;
+  padding: 1rem 2rem; display: flex; align-items: center; justify-content: center;
+  gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+}
+#consent-banner p { margin: 0; color: rgba(255,255,255,0.85); }
+#consent-banner a { color: rgba(255,255,255,0.7); text-underline-offset: 2px; }
+.consent-btn { padding: 0.45rem 1.1rem; border-radius: 5px; font-size: 0.82rem; font-weight: 700; cursor: pointer; border: none; font-family: inherit; }
+.consent-accept { background: #fff; color: var(--ink); }
+.consent-decline { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3) !important; }
+</style>
+<div id="consent-banner" style="display:none">
+  <p>We use Google Analytics to understand site traffic. No personal data is sold. <a href="/privacy">Privacy policy</a></p>
+  <div style="display:flex;gap:0.5rem">
+    <button class="consent-btn consent-accept" onclick="setConsent(true)">Accept</button>
+    <button class="consent-btn consent-decline" onclick="setConsent(false)">Decline</button>
+  </div>
+</div>
+<script>
+(function() {
+  if (localStorage.getItem('ga_consent') === null) {
+    document.getElementById('consent-banner').style.display = 'flex';
+  }
+})();
+function setConsent(yes) {
+  localStorage.setItem('ga_consent', yes ? 'yes' : 'no');
+  document.getElementById('consent-banner').style.display = 'none';
+  if (yes) loadGA();
+}
+</script>
 </body>
 </html>
