@@ -4,177 +4,103 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Free PDF Summarizer - AI-Powered, No Signup | GetAITools.dev</title>
-  <meta name="description" content="Summarize any PDF instantly in your browser. No signup, no subscription. Uses your own Claude API key - costs fractions of a cent. Or download the open source Python script."/>
-  <meta name="keywords" content="free pdf summarizer, ai pdf summarizer online, pdf summary tool, pdf key takeaways, summarize pdf free"/>
+  <meta name="description" content="Summarize any PDF with AI. Use free in your browser with your own API key, or download the open source Python script. No subscription required."/>
+  <meta name="keywords" content="free pdf summarizer, ai pdf summarizer, pdf summary tool, summarize pdf free, pdf key takeaways"/>
   <link rel="canonical" href="https://getaitools.dev/tools/pdf-summarizer"/>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"PDF Summarizer","description":"Free AI-powered PDF summarizer. Use in browser or download open source Python script.","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/></noscript>
   <link rel="stylesheet" href="../style.css"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <style>
-    /* ── Tool hero ── */
-    .tool-hero {
-      background: var(--off);
-      border-bottom: 1px solid var(--line);
-      padding: 3rem 2rem 2.5rem;
+    .choice-page {
+      max-width: 860px; margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
     }
-    .tool-hero-inner { max-width: 1080px; margin: 0 auto; }
-    .tool-hero-tag {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--ink3);
-      background: var(--line2); border: 1px solid var(--line);
-      padding: 3px 10px; border-radius: 3px; margin-bottom: 1rem;
+    .choice-header { text-align: center; margin-bottom: 3rem; }
+    .choice-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .choice-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.6rem;
     }
-    .tool-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.6rem; }
-    .tool-hero-sub { font-size: 0.97rem; color: var(--ink3); max-width: 560px; line-height: 1.7; margin-bottom: 1.75rem; }
+    .choice-header p {
+      font-size: 0.97rem; color: var(--ink3);
+      max-width: 500px; margin: 0 auto; line-height: 1.7;
+    }
 
-    /* ── CTA buttons ── */
-    .tool-cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
+    .choice-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+    }
+    .choice-card {
+      border: 1px solid var(--line); border-radius: 10px;
+      padding: 2rem; cursor: pointer;
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+    }
+    .choice-card:hover {
+      border-color: var(--ink);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .choice-card.primary {
       background: var(--ink); color: #fff;
-      padding: 0.7rem 1.4rem; border-radius: 6px;
-      font-size: 0.9rem; font-weight: 700; font-family: var(--font);
-      border: none; cursor: pointer; transition: background 0.12s;
+      border-color: var(--ink);
     }
-    .btn-primary:hover { background: var(--ink2); }
-    .btn-secondary {
+    .choice-card.primary:hover {
+      background: var(--ink2); border-color: var(--ink2);
+    }
+    .choice-card-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 1.25rem;
+      background: rgba(255,255,255,0.12);
+    }
+    .choice-card.secondary .choice-card-icon {
+      background: var(--line2);
+    }
+    .choice-card h2 {
+      font-size: 1.15rem; font-weight: 800;
+      letter-spacing: -0.3px; margin-bottom: 0.5rem;
+    }
+    .choice-card p {
+      font-size: 0.85rem; line-height: 1.65;
+      flex: 1; margin-bottom: 1.5rem;
+    }
+    .choice-card.primary p { color: rgba(255,255,255,0.7); }
+    .choice-card.secondary p { color: var(--ink3); }
+
+    .choice-card-perks { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.75rem; }
+    .perk {
+      font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .choice-card.primary .perk { color: rgba(255,255,255,0.8); }
+    .choice-card.secondary .perk { color: var(--ink3); }
+    .perk-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: currentColor; flex-shrink: 0; opacity: 0.6;
+    }
+
+    .choice-cta {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--white); color: var(--ink);
-      padding: 0.7rem 1.4rem; border-radius: 6px;
-      font-size: 0.9rem; font-weight: 600; font-family: var(--font);
-      border: 1px solid var(--line); cursor: pointer; transition: border-color 0.12s, background 0.12s;
-      text-decoration: none;
+      padding: 0.65rem 1.25rem; border-radius: 6px;
+      font-size: 0.88rem; font-weight: 700; font-family: var(--font);
+      align-self: flex-start;
     }
-    .btn-secondary:hover { border-color: var(--ink); background: var(--off); }
-
-    /* ── Browser tool ── */
-    .browser-tool {
-      max-width: 1080px; margin: 0 auto;
-      padding: 2.5rem 2rem 3rem;
+    .choice-card.primary .choice-cta {
+      background: #fff; color: var(--ink);
     }
-    .tool-section-label {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--ink4);
-      margin-bottom: 1.5rem;
+    .choice-card.secondary .choice-cta {
+      background: var(--ink); color: #fff;
     }
 
-    /* API key box */
-    .api-key-box {
-      background: var(--off); border: 1px solid var(--line);
-      border-radius: 8px; padding: 1.25rem 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .api-key-box label { font-size: 0.82rem; font-weight: 700; display: block; margin-bottom: 0.5rem; }
-    .api-key-row { display: flex; gap: 0.5rem; align-items: center; }
-    .api-key-input {
-      flex: 1; padding: 0.55rem 0.85rem;
-      border: 1px solid var(--line); border-radius: 5px;
-      font-size: 0.85rem; font-family: var(--font);
-      background: var(--white); color: var(--ink); outline: none;
-      transition: border-color 0.12s;
-    }
-    .api-key-input:focus { border-color: var(--green); }
-    .api-key-saved { font-size: 0.75rem; color: var(--green); margin-top: 0.4rem; display: none; }
-    .api-key-hint { font-size: 0.75rem; color: var(--ink4); margin-top: 0.4rem; }
-    .api-key-hint a { color: var(--green); }
-    .btn-sm {
-      padding: 0.5rem 0.9rem; border-radius: 5px; font-size: 0.8rem;
-      font-weight: 600; font-family: var(--font); cursor: pointer;
-      border: 1px solid var(--line); background: var(--white);
-      color: var(--ink); transition: background 0.12s; white-space: nowrap;
-    }
-    .btn-sm:hover { background: var(--off); }
-
-    /* Options row */
-    .options-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-    .option-group { flex: 1; min-width: 200px; }
-    .option-group label { font-size: 0.78rem; font-weight: 700; color: var(--ink3); display: block; margin-bottom: 0.4rem; }
-    .option-select {
-      width: 100%; padding: 0.5rem 0.75rem;
-      border: 1px solid var(--line); border-radius: 5px;
-      font-size: 0.85rem; font-family: var(--font);
-      background: var(--white); color: var(--ink); outline: none;
-      cursor: pointer;
-    }
-    .option-select:focus { border-color: var(--green); }
-
-    /* Drop zone */
-    .drop-zone {
-      border: 2px dashed var(--line); border-radius: 8px;
-      padding: 3rem 2rem; text-align: center;
-      background: var(--off); cursor: pointer;
-      transition: border-color 0.15s, background 0.15s;
-      margin-bottom: 1.25rem;
-    }
-    .drop-zone:hover, .drop-zone.drag-over {
-      border-color: var(--ink); background: var(--line2);
-    }
-    .drop-zone-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-    .drop-zone-text { font-size: 0.95rem; font-weight: 600; color: var(--ink2); margin-bottom: 0.25rem; }
-    .drop-zone-hint { font-size: 0.8rem; color: var(--ink4); }
-    .drop-zone.has-file { border-color: var(--green); background: #f0fdf4; }
-    .drop-zone.has-file .drop-zone-icon::after { content: ' ✓'; font-size: 1.5rem; }
-
-    /* Progress */
-    .progress-bar-wrap {
-      background: var(--line2); border-radius: 4px;
-      height: 4px; margin-bottom: 1.25rem; overflow: hidden; display: none;
-    }
-    .progress-bar {
-      height: 100%; background: var(--ink);
-      border-radius: 4px; width: 0%;
-      transition: width 0.3s ease;
+    .choice-note {
+      text-align: center; margin-top: 2rem;
+      font-size: 0.78rem; color: var(--ink4);
     }
 
-    /* Result */
-    .result-box {
-      border: 1px solid var(--line); border-radius: 8px;
-      overflow: hidden; display: none;
-    }
-    .result-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.75rem 1.25rem;
-      background: var(--off); border-bottom: 1px solid var(--line);
-    }
-    .result-header span { font-size: 0.78rem; font-weight: 700; color: var(--ink3); }
-    .result-content {
-      padding: 1.5rem; font-size: 0.9rem; line-height: 1.8;
-      color: var(--ink2); white-space: pre-wrap; min-height: 120px;
-    }
-    .result-content ul { padding-left: 1.25rem; }
-    .result-content li { margin-bottom: 0.4rem; }
-
-    /* Error */
-    .error-box {
-      background: #fef2f2; border: 1px solid #fecaca;
-      border-radius: 6px; padding: 1rem 1.25rem;
-      font-size: 0.85rem; color: #dc2626;
-      margin-bottom: 1rem; display: none;
-    }
-
-    /* Divider */
-    .section-divider {
-      border: none; border-top: 1px solid var(--line);
-      margin: 0;
-    }
-
-    /* GitHub section */
-    .github-section {
-      max-width: 1080px; margin: 0 auto;
-      padding: 2.5rem 2rem 1rem;
-      display: grid; grid-template-columns: 1fr 300px; gap: 3rem;
-      align-items: flex-start;
-    }
-    @media (max-width: 760px) {
-      .github-section { grid-template-columns: 1fr; }
-      .options-row { flex-direction: column; }
+    @media (max-width: 600px) {
+      .choice-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -187,175 +113,69 @@
       <a href="../index.html#tools">Browse Tools</a>
       <a href="../guides/index.html">Guides</a>
     </nav>
-    <a href="https://github.com/Get-Ai-Tools/pdf-summarizer" target="_blank" class="nav-gh">
+    <a href="https://github.com/Get-Ai-Tools" target="_blank" class="nav-gh">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
       GitHub
     </a>
   </div>
 </header>
 
-<!-- ═══ HERO ═══ -->
-<section class="tool-hero">
-  <div class="tool-hero-inner">
-    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.25rem">
-      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › PDF Summarizer
-    </nav>
-    <div class="tool-hero-tag">📄 Productivity</div>
+<div class="choice-page">
+
+  <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:2rem">
+    <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › PDF Summarizer
+  </nav>
+
+  <div class="choice-header">
+    <div class="choice-icon">📄</div>
     <h1>PDF Summarizer</h1>
-    <p class="tool-hero-sub">Summarize any PDF instantly — no signup, no subscription. Paste your API key, upload your file, get results in seconds. Your key never leaves your browser.</p>
-    <div class="tool-cta-row">
-      <button class="btn-primary" onclick="document.getElementById('browser-tool').scrollIntoView({behavior:'smooth'})">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        Try in Browser
-      </button>
-      <a href="https://github.com/Get-Ai-Tools/pdf-summarizer" target="_blank" class="btn-secondary">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        Get on GitHub
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ BROWSER TOOL ═══ -->
-<div class="browser-tool" id="browser-tool">
-  <div class="tool-section-label">Try in browser — free, no signup</div>
-
-  <!-- API Key -->
-  <div class="api-key-box">
-    <label for="api-key">Your Anthropic API key</label>
-    <div class="api-key-row">
-      <input type="password" id="api-key" class="api-key-input" placeholder="sk-ant-api03-..." autocomplete="off"/>
-      <button class="btn-sm" onclick="toggleKeyVisibility()">Show</button>
-      <button class="btn-sm" onclick="saveKey()" style="background:var(--ink);color:#fff;border-color:var(--ink)">Save</button>
-    </div>
-    <div class="api-key-saved" id="key-saved">Key saved to your browser.</div>
-    <p class="api-key-hint">Your key is saved in your browser only — never sent to our servers. Need a key? <a href="https://console.anthropic.com" target="_blank">Get one free at console.anthropic.com</a></p>
+    <p>Summarize any PDF with AI. Get a paragraph summary, bullet points, or key takeaways in seconds.</p>
   </div>
 
-  <!-- Options -->
-  <div class="options-row">
-    <div class="option-group">
-      <label>Output type</label>
-      <select id="output-type" class="option-select">
-        <option value="summary">Summary (3-5 paragraphs)</option>
-        <option value="bullets">Key points (bullet list)</option>
-        <option value="takeaways">Top takeaways (actionable)</option>
-      </select>
-    </div>
-    <div class="option-group">
-      <label>Model</label>
-      <select id="model" class="option-select">
-        <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 — fastest, cheapest (~$0.001/PDF)</option>
-        <option value="claude-sonnet-4-6">Claude Sonnet 4.6 — balanced</option>
-        <option value="claude-opus-4-6">Claude Opus 4.6 — most capable</option>
-      </select>
-    </div>
-  </div>
+  <div class="choice-grid">
 
-  <!-- Drop zone -->
-  <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
-    <input type="file" id="file-input" accept=".pdf" style="display:none" onchange="handleFile(this.files[0])"/>
-    <div class="drop-zone-icon" id="drop-icon">📄</div>
-    <div class="drop-zone-text" id="drop-text">Drop your PDF here or click to browse</div>
-    <div class="drop-zone-hint" id="drop-hint">PDF files only · text-based PDFs work best</div>
-  </div>
-
-  <!-- Error -->
-  <div class="error-box" id="error-box"></div>
-
-  <!-- Progress -->
-  <div class="progress-bar-wrap" id="progress-wrap">
-    <div class="progress-bar" id="progress-bar"></div>
-  </div>
-
-  <!-- Submit -->
-  <button class="btn-primary" id="summarize-btn" onclick="summarize()" style="margin-bottom:1.5rem;width:100%;justify-content:center;padding:0.85rem" disabled>
-    Summarize PDF
-  </button>
-
-  <!-- Result -->
-  <div class="result-box" id="result-box">
-    <div class="result-header">
-      <span id="result-label">Summary</span>
-      <button class="btn-sm" onclick="copyResult()">Copy</button>
-    </div>
-    <div class="result-content" id="result-content"></div>
-  </div>
-</div>
-
-<hr class="section-divider"/>
-
-<!-- ═══ GITHUB / INFO SECTION ═══ -->
-<div class="github-section">
-  <main>
-    <div class="gh-cta">
-      <h3>Run it locally with Python</h3>
-      <p>Prefer to run it on your machine? Batch process folders, automate with scripts, no browser needed.</p>
-      <a href="https://github.com/Get-Ai-Tools/pdf-summarizer" target="_blank" class="gh-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        View on GitHub →
-      </a>
-    </div>
-
-    <h2>What it does</h2>
-    <p>Extracts text from any PDF and sends it to Claude AI for summarization. Works entirely in your browser — your document and API key stay on your device. For large files, content is automatically truncated to fit within context limits.</p>
-
-    <h2>Features</h2>
-    <ul>
-      <li>Three output modes: paragraph summary, bullet points, or key takeaways</li>
-      <li>Model switcher — use Haiku for speed/cost, Opus for complex documents</li>
-      <li>API key saved locally in your browser — never hits our servers</li>
-      <li>Python script available for batch processing and automation</li>
-      <li>Costs fractions of a cent per PDF with Haiku</li>
-    </ul>
-
-    <h2>Quick start (Python)</h2>
-    <pre>git clone https://github.com/Get-Ai-Tools/pdf-summarizer
-cd pdf-summarizer
-pip install -r requirements.txt
-
-python summarizer.py --api-key sk-ant-... --pdf report.pdf
-python summarizer.py --api-key sk-ant-... --folder ./pdfs --out ./summaries</pre>
-
-    <h2>Frequently asked questions</h2>
-    <div class="faq-list">
-      <div class="faq-q">
-        <h3>Is my API key safe?</h3>
-        <p>Yes. Your key is saved in your browser's localStorage only. When you hit Summarize, your browser sends the key and document text to a thin Cloudflare proxy function that immediately forwards it to Anthropic — nothing is logged or stored. The proxy <a href="https://github.com/Get-Ai-Tools/getaitools-website/blob/master/functions/api/summarize.js" target="_blank" style="color:var(--green)">source code is public</a>.</p>
+    <!-- Browser option -->
+    <a href="pdf-summarizer-app.html" class="choice-card primary">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
-      <div class="faq-q">
-        <h3>Does it work on scanned PDFs?</h3>
-        <p>It works best on PDFs with selectable text (research papers, reports, ebooks). Scanned image PDFs have no extractable text — you'd need an OCR tool first.</p>
+      <h2>Use in Browser</h2>
+      <p>Works instantly — no install, no setup. Paste your API key and upload your PDF. Your key stays in your browser.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>No install or setup</div>
+        <div class="perk"><div class="perk-dot"></div>Works on any device</div>
+        <div class="perk"><div class="perk-dot"></div>API key stays in your browser</div>
+        <div class="perk"><div class="perk-dot"></div>~$0.001 per PDF with Haiku</div>
       </div>
-      <div class="faq-q">
-        <h3>How much does it cost?</h3>
-        <p>Using Claude Haiku (the default), a typical 10-page PDF costs around $0.001–$0.005. You're billed directly by Anthropic — we never touch your payment details.</p>
-      </div>
-      <div class="faq-q">
-        <h3>What's the file size limit?</h3>
-        <p>No hard limit on file size — but only the first ~80,000 characters of text are processed to stay within model context limits. For most documents this is plenty.</p>
-      </div>
-    </div>
-  </main>
+      <span class="choice-cta">
+        Open tool
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
 
-  <aside class="tool-sidebar">
-    <div class="sidebar-box">
-      <h4>Browser tool</h4>
-      <ul>
-        <li>No signup required</li>
-        <li>Key stays in your browser</li>
-        <li>Uses your Anthropic key</li>
-        <li>Open source proxy</li>
-      </ul>
-    </div>
-    <div class="sidebar-box related-tools">
-      <h4>Related tools</h4>
-      <a href="youtube-transcript.html">YouTube Transcript</a>
-      <a href="meeting-summarizer.html">Meeting Summarizer</a>
-      <a href="hacker-news-digest.html">HN Daily Digest</a>
-      <a href="seo-keyword-extractor.html">SEO Keyword Extractor</a>
-    </div>
-  </aside>
+    <!-- GitHub option -->
+    <a href="https://github.com/Get-Ai-Tools/pdf-summarizer" target="_blank" class="choice-card secondary">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </div>
+      <h2>Run with Python</h2>
+      <p>Download the open source script. Batch process folders, automate workflows, run entirely offline.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>Batch process entire folders</div>
+        <div class="perk"><div class="perk-dot"></div>Automate with scripts</div>
+        <div class="perk"><div class="perk-dot"></div>Runs fully offline</div>
+        <div class="perk"><div class="perk-dot"></div>MIT license — fork it freely</div>
+      </div>
+      <span class="choice-cta">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+
+  </div>
+
+  <p class="choice-note">Both options use your own Anthropic API key — costs fractions of a cent per PDF. <a href="../guides/how-to-use-claude-api.html" style="color:var(--ink3);text-decoration:underline;text-underline-offset:2px">Get a free API key →</a></p>
+
 </div>
 
 <footer class="footer">
@@ -379,168 +199,5 @@ python summarizer.py --api-key sk-ant-... --folder ./pdfs --out ./summaries</pre
   <div class="footer-bottom">© 2026 getaitools.dev</div>
 </footer>
 
-<script>
-// ── PDF.js setup ──
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-let extractedText = '';
-let selectedFile = null;
-
-// ── API Key ──
-window.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('anthropic_api_key');
-  if (saved) {
-    document.getElementById('api-key').value = saved;
-    document.getElementById('key-saved').style.display = 'block';
-  }
-});
-
-function saveKey() {
-  const key = document.getElementById('api-key').value.trim();
-  if (!key) return;
-  localStorage.setItem('anthropic_api_key', key);
-  const el = document.getElementById('key-saved');
-  el.style.display = 'block';
-  el.textContent = 'Key saved to your browser.';
-}
-
-function toggleKeyVisibility() {
-  const input = document.getElementById('api-key');
-  const btn = event.target;
-  if (input.type === 'password') { input.type = 'text'; btn.textContent = 'Hide'; }
-  else { input.type = 'password'; btn.textContent = 'Show'; }
-}
-
-// ── Drag & drop ──
-const dropZone = document.getElementById('drop-zone');
-dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
-dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
-dropZone.addEventListener('drop', e => {
-  e.preventDefault();
-  dropZone.classList.remove('drag-over');
-  const file = e.dataTransfer.files[0];
-  if (file && file.type === 'application/pdf') handleFile(file);
-  else showError('Please drop a PDF file.');
-});
-
-// ── File handling ──
-async function handleFile(file) {
-  if (!file) return;
-  selectedFile = file;
-  showError('');
-  setProgress(10);
-  document.getElementById('progress-wrap').style.display = 'block';
-
-  document.getElementById('drop-text').textContent = file.name;
-  document.getElementById('drop-hint').textContent = `${(file.size / 1024).toFixed(0)} KB — extracting text...`;
-  dropZone.classList.add('has-file');
-
-  try {
-    const arrayBuffer = await file.arrayBuffer();
-    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-    let text = '';
-    setProgress(30);
-
-    for (let i = 1; i <= pdf.numPages; i++) {
-      const page = await pdf.getPage(i);
-      const content = await page.getTextContent();
-      text += content.items.map(item => item.str).join(' ') + '\n';
-      setProgress(30 + Math.round((i / pdf.numPages) * 40));
-    }
-
-    extractedText = text.trim();
-    setProgress(0);
-    document.getElementById('progress-wrap').style.display = 'none';
-
-    if (!extractedText) {
-      showError('No text found in this PDF. It may be a scanned image — text-based PDFs only.');
-      dropZone.classList.remove('has-file');
-      return;
-    }
-
-    document.getElementById('drop-hint').textContent = `${pdf.numPages} pages · ${extractedText.length.toLocaleString()} characters extracted`;
-    document.getElementById('summarize-btn').disabled = false;
-  } catch (err) {
-    showError('Could not read this PDF. Make sure it is a valid, text-based PDF.');
-    document.getElementById('progress-wrap').style.display = 'none';
-    dropZone.classList.remove('has-file');
-  }
-}
-
-// ── Summarize ──
-async function summarize() {
-  const apiKey = document.getElementById('api-key').value.trim();
-  if (!apiKey) { showError('Please enter your Anthropic API key first.'); return; }
-  if (!extractedText) { showError('Please upload a PDF first.'); return; }
-
-  // Save key automatically
-  localStorage.setItem('anthropic_api_key', apiKey);
-
-  const outputType = document.getElementById('output-type').value;
-  const model = document.getElementById('model').value;
-  const btn = document.getElementById('summarize-btn');
-
-  showError('');
-  btn.disabled = true;
-  btn.textContent = 'Summarizing...';
-  document.getElementById('result-box').style.display = 'none';
-  document.getElementById('progress-wrap').style.display = 'block';
-  setProgress(20);
-
-  try {
-    const res = await fetch('/api/summarize', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ apiKey, text: extractedText, outputType, model })
-    });
-
-    setProgress(90);
-    const data = await res.json();
-
-    if (!res.ok || data.error) {
-      const msg = data.error?.message || data.error || 'API error. Check your API key and try again.';
-      showError(msg);
-      return;
-    }
-
-    const result = data.content?.[0]?.text || '';
-    const labels = { summary: 'Summary', bullets: 'Key Points', takeaways: 'Key Takeaways' };
-    document.getElementById('result-label').textContent = labels[outputType] || 'Result';
-    document.getElementById('result-content').textContent = result;
-    document.getElementById('result-box').style.display = 'block';
-    document.getElementById('result-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    setProgress(100);
-
-  } catch (err) {
-    showError('Network error. Please try again.');
-  } finally {
-    btn.disabled = false;
-    btn.textContent = 'Summarize PDF';
-    setTimeout(() => {
-      document.getElementById('progress-wrap').style.display = 'none';
-      setProgress(0);
-    }, 500);
-  }
-}
-
-function copyResult() {
-  const text = document.getElementById('result-content').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = event.target;
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 2000);
-  });
-}
-
-function showError(msg) {
-  const el = document.getElementById('error-box');
-  el.textContent = msg;
-  el.style.display = msg ? 'block' : 'none';
-}
-
-function setProgress(pct) {
-  document.getElementById('progress-bar').style.width = pct + '%';
-}
-</script>
 </body>
 </html>
