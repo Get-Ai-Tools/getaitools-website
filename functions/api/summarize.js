@@ -1,4 +1,4 @@
-// Cloudflare Pages Function — thin proxy to Anthropic API
+// Cloudflare Pages Function - thin proxy to Anthropic API
 // This function forwards your request to Anthropic using YOUR API key.
 // It does not log, store, or inspect your key or document content.
 // Source: https://github.com/Get-Ai-Tools/getaitools-website
