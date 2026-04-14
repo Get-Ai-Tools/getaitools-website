@@ -3,17 +3,43 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Hacker News Daily Digest (Python, AI) - getaitools.dev</title>
-  <meta name="description" content="Free open source Hacker News daily digest tool. Fetches top HN stories, summarizes articles and comments with Claude AI. Outputs markdown or HTML. Optional email delivery."/>
-  <meta name="keywords" content="hacker news digest, hn daily digest, hacker news summary python, hacker news ai summary, hn top stories"/>
+  <title>Free HN Daily Digest - AI Summary of Hacker News | GetAITools.dev</title>
+  <meta name="description" content="Get an AI-powered summary of today's top Hacker News stories. Use free in your browser with your own API key, or download the open source Python script."/>
+  <meta name="keywords" content="hacker news digest, hn daily summary, hacker news ai summary, free hn digest tool"/>
   <link rel="canonical" href="https://getaitools.dev/tools/hacker-news-digest"/>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"HN Daily Digest","description":"Free Hacker News daily digest powered by Claude AI.","programmingLanguage":"Python","codeRepository":"https://github.com/Get-Ai-Tools/hacker-news-digest","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/></noscript>
   <link rel="stylesheet" href="../style.css"/>
+  <style>
+    .choice-page { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .choice-header { text-align: center; margin-bottom: 3rem; }
+    .choice-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .choice-header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.6rem; }
+    .choice-header p { font-size: 0.97rem; color: var(--ink3); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+    .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .choice-card { border: 1px solid var(--line); border-radius: 10px; padding: 2rem; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+    .choice-card:hover { border-color: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .choice-card.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .choice-card.primary:hover { background: var(--ink2); border-color: var(--ink2); }
+    .choice-card-icon { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.25rem; background: rgba(255,255,255,0.12); }
+    .choice-card.secondary .choice-card-icon { background: var(--line2); }
+    .choice-card h2 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .choice-card p { font-size: 0.85rem; line-height: 1.65; flex: 1; margin-bottom: 1.5rem; }
+    .choice-card.primary p { color: rgba(255,255,255,0.7); }
+    .choice-card.secondary p { color: var(--ink3); }
+    .choice-card-perks { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.75rem; }
+    .perk { font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    .choice-card.primary .perk { color: rgba(255,255,255,0.8); }
+    .choice-card.secondary .perk { color: var(--ink3); }
+    .perk-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; opacity: 0.6; }
+    .choice-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; border-radius: 6px; font-size: 0.88rem; font-weight: 700; font-family: var(--font); align-self: flex-start; }
+    .choice-card.primary .choice-cta { background: #fff; color: var(--ink); }
+    .choice-card.secondary .choice-cta { background: var(--ink); color: #fff; }
+    .choice-note { text-align: center; margin-top: 2rem; font-size: 0.78rem; color: var(--ink4); }
+    @media (max-width: 600px) { .choice-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -26,115 +52,65 @@
     </nav>
     <a href="https://github.com/Get-Ai-Tools/hacker-news-digest" target="_blank" class="nav-gh">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      View on GitHub
+      GitHub
     </a>
   </div>
 </header>
 
+<div class="choice-page">
 
-<div class="tool-page">
-  <main class="tool-page-main">
+  <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:2rem">
+    <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › HN Daily Digest
+  </nav>
 
-    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem">
-      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › HN Daily Digest
-    </nav>
+  <div class="choice-header">
+    <div class="choice-icon">🔶</div>
+    <h1>HN Daily Digest</h1>
+    <p>Fetch today's top Hacker News stories and get an AI-generated summary of what's worth reading.</p>
+  </div>
 
-    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem">
-      <span style="font-size:2rem">🔶</span>
-      <div>
-        <span style="font-size:0.65rem;font-weight:700;letter-spacing:1px;color:var(--ink3);background:var(--line2);border:1px solid var(--line);padding:2px 8px;border-radius:3px;text-transform:uppercase">Research</span>
+  <div class="choice-grid">
+
+    <a href="hacker-news-digest-app.html" class="choice-card primary">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
-    </div>
-
-    <h1>Hacker News Daily Digest</h1>
-    <p class="tool-page-lead">Fetch top Hacker News stories and get AI-written summaries of each article and its comment thread. Outputs a clean daily briefing as markdown or HTML. Schedule it to email you every morning.</p>
-
-    <div class="gh-cta">
-      <h3>Download from GitHub</h3>
-      <p>Free and open source. Uses the public HN Firebase API - no HN credentials required.</p>
-      <a href="https://github.com/Get-Ai-Tools/hacker-news-digest" target="_blank" class="gh-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        View on GitHub →
-      </a>
-    </div>
-
-    <h2>What it does</h2>
-    <p>Pulls the top N stories from Hacker News via the public Firebase API, fetches the linked article text, reads the top comments, and sends everything to Claude AI for a concise 2-3 sentence summary. The result is a clean daily briefing - one summary per story - saved as markdown or HTML.</p>
-    <p>You can schedule it with cron or Windows Task Scheduler to run every morning and email you the digest automatically.</p>
-
-    <h2>Features</h2>
-    <ul>
-      <li>Fetches top N stories from HN (default: 10)</li>
-      <li>Summarizes article text + top comment threads</li>
-      <li>Generates an overall TL;DR of the day's themes</li>
-      <li>Outputs markdown or styled HTML</li>
-      <li>Optional email delivery via Gmail SMTP</li>
-      <li>No HN API key required</li>
-    </ul>
-
-    <h2>Quick start</h2>
-    <pre>git clone https://github.com/Get-Ai-Tools/hacker-news-digest
-cd hacker-news-digest
-pip install -r requirements.txt
-
-# Basic markdown digest (top 10 stories)
-python digest.py --api-key sk-ant-...
-
-# HTML output, 20 stories
-python digest.py --api-key sk-ant-... --stories 20 --output html
-
-# Email the digest to yourself
-python digest.py --api-key sk-ant-... --output html \
-  --email you@gmail.com --smtp-user you@gmail.com --smtp-pass app-password</pre>
-
-    <h2>Schedule it (daily email)</h2>
-    <p>On Linux/Mac, add to crontab (<code>crontab -e</code>):</p>
-    <pre>0 7 * * * cd /path/to/hacker-news-digest && python digest.py --api-key sk-ant-... --email you@gmail.com --smtp-user you@gmail.com --smtp-pass app-password</pre>
-
-    <h2>Requirements</h2>
-    <ul>
-      <li>Python 3.8+</li>
-      <li><code>requests</code>, <code>anthropic</code> (auto-installed)</li>
-      <li>Claude API key - get one free at <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a></li>
-    </ul>
-
-    <div class="faq-list">
-      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Does this require a Hacker News API key?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">No. It uses the public HN Firebase API which requires no authentication and has generous rate limits.</p>
-        </div>
+      <h2>Use in Browser</h2>
+      <p>Fetches live HN top stories and generates an AI digest right in your browser. Click and go.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>No install or setup</div>
+        <div class="perk"><div class="perk-dot"></div>Live top stories from HN API</div>
+        <div class="perk"><div class="perk-dot"></div>API key stays in your browser</div>
+        <div class="perk"><div class="perk-dot"></div>Fractions of a cent per digest</div>
       </div>
-      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
-        <h3 itemprop="name">How much does running this cost?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">A digest of 10 stories costs roughly $0.002-$0.01 using claude-haiku. Running it daily costs less than $0.30/month.</p>
-        </div>
+      <span class="choice-cta">
+        Open tool
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a href="https://github.com/Get-Ai-Tools/hacker-news-digest" target="_blank" class="choice-card secondary">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
       </div>
-    </div>
+      <h2>Run with Python</h2>
+      <p>Download the open source script. Schedule it as a cron job, get daily email digests.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>Schedule as a daily cron job</div>
+        <div class="perk"><div class="perk-dot"></div>Email digest output</div>
+        <div class="perk"><div class="perk-dot"></div>Runs fully offline</div>
+        <div class="perk"><div class="perk-dot"></div>MIT license - fork it freely</div>
+      </div>
+      <span class="choice-cta">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
 
-  </main>
+  </div>
 
-  <aside class="tool-sidebar">
-    <div class="sidebar-box">
-      <h4>Requirements</h4>
-      <ul>
-        <li>Python 3.8+</li>
-        <li>requests, anthropic</li>
-        <li>Claude API key</li>
-        <li>No HN API key</li>
-      </ul>
-    </div>
-    </div>
-    <div class="sidebar-box related-tools">
-      <h4>Related Tools</h4>
-      <a href="reddit-scraper.html">Reddit Scraper</a>
-      <a href="news-sentiment.html">News Sentiment Analyzer</a>
-      <a href="tweet-thread-archiver.html">Tweet Thread Archiver</a>
-      <a href="pdf-summarizer.html">PDF Summarizer</a>
-    </div>
-    </div>
-  </aside>
+  <p class="choice-note">Both options use your own Anthropic API key - costs fractions of a cent per digest. <a href="../guides/how-to-use-claude-api.html" style="color:var(--ink3);text-decoration:underline;text-underline-offset:2px">Get a free API key →</a></p>
+
 </div>
 
 <footer class="footer">
@@ -144,8 +120,14 @@ python digest.py --api-key sk-ant-... --output html \
       <div class="footer-col">
         <strong>Tools</strong>
         <a href="../index.html#tools">Browse all tools</a>
+        <a href="news-sentiment.html">News Sentiment</a>
         <a href="reddit-scraper.html">Reddit Scraper</a>
-        <a href="pdf-summarizer.html">PDF Summarizer</a>
+      </div>
+      <div class="footer-col">
+        <strong>Resources</strong>
+        <a href="../guides/">Guides</a>
+        <a href="../guides/how-to-use-claude-api.html">Get a Claude API key</a>
+        <a href="../privacy.html">Privacy policy</a>
       </div>
     </nav>
   </div>

@@ -4,16 +4,43 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Free Reddit Scraper (Python, No API Key) - getaitools.dev</title>
-  <meta name="description" content="Free open source Reddit scraper written in Python. Scrape posts, comments, and subreddit data. No Reddit API key required. Export to CSV or JSON. Download from GitHub."/>
-  <meta name="keywords" content="free reddit scraper, reddit scraper python, reddit data scraper, reddit post scraper free, python reddit scraper github"/>
+  <meta name="description" content="Free open source Reddit scraper. Scrapes posts and comments from any subreddit without requiring a Reddit API key. Download from GitHub."/>
+  <meta name="keywords" content="free reddit scraper, reddit scraper python, scrape reddit without api, reddit data extraction free"/>
   <link rel="canonical" href="https://getaitools.dev/tools/reddit-scraper"/>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Reddit Scraper","description":"Free open source Reddit scraper in Python. No API key required.","programmingLanguage":"Python","codeRepository":"https://github.com/Get-Ai-Tools/reddit-scraper","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/></noscript>
   <link rel="stylesheet" href="../style.css"/>
+  <style>
+    .choice-page { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .choice-header { text-align: center; margin-bottom: 3rem; }
+    .choice-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .choice-header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.6rem; }
+    .choice-header p { font-size: 0.97rem; color: var(--ink3); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+    .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .choice-card { border: 1px solid var(--line); border-radius: 10px; padding: 2rem; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+    .choice-card:hover { border-color: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .choice-card.secondary .choice-card-icon { background: var(--line2); }
+    .choice-card.disabled { background: var(--off); color: var(--ink3); border-color: var(--line); cursor: default; pointer-events: none; }
+    .choice-card.disabled:hover { transform: none; box-shadow: none; border-color: var(--line); }
+    .choice-card-icon { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.25rem; background: rgba(255,255,255,0.12); }
+    .choice-card.disabled .choice-card-icon { background: var(--line2); }
+    .choice-card h2 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .choice-card p { font-size: 0.85rem; line-height: 1.65; flex: 1; margin-bottom: 1.5rem; }
+    .choice-card.secondary p { color: var(--ink3); }
+    .choice-card-perks { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.75rem; }
+    .perk { font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    .choice-card.secondary .perk { color: var(--ink3); }
+    .choice-card.disabled .perk { color: var(--ink4); }
+    .perk-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; opacity: 0.6; }
+    .choice-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; border-radius: 6px; font-size: 0.88rem; font-weight: 700; font-family: var(--font); align-self: flex-start; }
+    .choice-card.secondary .choice-cta { background: var(--ink); color: #fff; }
+    .choice-card.disabled .choice-cta { background: var(--line2); color: var(--ink4); border: 1px solid var(--line); }
+    .choice-note { text-align: center; margin-top: 2rem; font-size: 0.78rem; color: var(--ink4); }
+    .coming-soon-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--line2); border: 1px solid var(--line); color: var(--ink4); padding: 2px 8px; border-radius: 3px; margin-bottom: 0.75rem; }
+    @media (max-width: 600px) { .choice-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -26,129 +53,61 @@
     </nav>
     <a href="https://github.com/Get-Ai-Tools/reddit-scraper" target="_blank" class="nav-gh">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      View on GitHub
+      GitHub
     </a>
   </div>
 </header>
 
+<div class="choice-page">
 
-<div class="tool-page">
-  <main class="tool-page-main">
+  <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:2rem">
+    <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › Reddit Scraper
+  </nav>
 
-    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem">
-      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › Reddit Scraper
-    </nav>
+  <div class="choice-header">
+    <div class="choice-icon">🤖</div>
+    <h1>Reddit Scraper</h1>
+    <p>Scrape posts and comments from any subreddit - no Reddit API key required.</p>
+  </div>
 
-    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem">
-      <span style="font-size:2rem">📡</span>
-      <div>
-        <span style="font-size:0.65rem;font-weight:700;letter-spacing:1px;color:var(--ink3);background:var(--line2);border:1px solid var(--line);padding:2px 8px;border-radius:3px;text-transform:uppercase">Social Media</span>
+  <div class="choice-grid">
+
+    <div class="choice-card disabled">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
-    </div>
-
-    <h1>Free Reddit Scraper</h1>
-    <p class="tool-page-lead">Scrape posts, comments, and subreddit data with Python. No Reddit API key required. Filters by date, score, and keyword. Exports to CSV or JSON.</p>
-
-    <div class="gh-cta">
-      <h3>Download from GitHub</h3>
-      <p>Free and open source. Clone the repo, add your Claude API key (optional, for AI summaries), and run.</p>
-      <a href="https://github.com/Get-Ai-Tools/reddit-scraper" target="_blank" class="gh-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        View on GitHub →
-      </a>
-    </div>
-
-    <h2>What it does</h2>
-    <p>This script uses Reddit's public JSON API (no authentication required) to scrape posts and comments from any subreddit. It filters results by score, date range, keyword, or flair, then exports clean data to CSV or JSON.</p>
-    <p>The optional Claude AI integration can summarize post content, extract key themes from a subreddit, or classify posts by sentiment - add your API key to unlock it.</p>
-
-    <h2>Features</h2>
-    <ul>
-      <li>Scrape posts from any public subreddit (hot, new, top, rising)</li>
-      <li>Filter by minimum score, date range, keyword, or flair</li>
-      <li>Scrape comments for each post (configurable depth)</li>
-      <li>Export to <code>.csv</code> or <code>.json</code></li>
-      <li>Respects Reddit rate limits automatically</li>
-      <li>Optional: AI summarization of posts using Claude</li>
-      <li>Optional: Theme extraction from a subreddit's top posts</li>
-      <li>No Reddit API key required (uses public JSON endpoints)</li>
-    </ul>
-
-    <h2>Quick start</h2>
-    <pre>git clone https://github.com/Get-Ai-Tools/reddit-scraper
-cd reddit-scraper
-pip install -r requirements.txt
-
-# Scrape top 100 posts from r/python
-python scraper.py --subreddit python --sort top --limit 100
-
-# With keyword filter and CSV export
-python scraper.py --subreddit entrepreneur --keyword "side project" --output csv
-
-# With AI summarization (requires Claude API key)
-python scraper.py --subreddit machinelearning --sort hot --summarize --api-key sk-ant-...</pre>
-
-    <h2>Requirements</h2>
-    <ul>
-      <li>Python 3.8+</li>
-      <li><code>requests</code>, <code>pandas</code> (auto-installed)</li>
-      <li>Claude API key - only needed for AI summaries. Get one free at <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a></li>
-    </ul>
-
-    <h2>Example output</h2>
-    <pre>title,score,comments,url,created,flair
-"Show HN: I built a free Reddit scraper",847,203,https://...,2026-04-01,Show HN
-"Best Python libraries for data analysis",1204,89,https://...,2026-04-02,Discussion
-...</pre>
-
-    <h2>Frequently asked questions</h2>
-    <div class="faq-list">
-      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Does this Reddit scraper require an API key?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">No. It uses Reddit's public JSON API (append <code>.json</code> to any Reddit URL) which requires no authentication. A Claude API key is only needed if you want AI-powered summaries.</p>
-        </div>
+      <div class="coming-soon-badge">Coming soon</div>
+      <h2>Use in Browser</h2>
+      <p>Browser version is not available yet - scraping requires server-side access due to Reddit's CORS restrictions.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>In development</div>
+        <div class="perk"><div class="perk-dot"></div>Use the Python version in the meantime</div>
       </div>
-      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Is scraping Reddit legal?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Scraping publicly available data is generally legal in most jurisdictions, but you should review Reddit's Terms of Service for your specific use case. This tool respects rate limits and only accesses public data.</p>
-        </div>
+      <span class="choice-cta">Not available yet</span>
+    </div>
+
+    <a href="https://github.com/Get-Ai-Tools/reddit-scraper" target="_blank" class="choice-card secondary">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
       </div>
-      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
-        <h3 itemprop="name">How many posts can I scrape at once?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Reddit's public API returns up to 100 posts per request. The script handles pagination automatically - set <code>--limit</code> to any number and it will make multiple requests as needed, with delays to respect rate limits.</p>
-        </div>
+      <h2>Run with Python</h2>
+      <p>Download the open source script. No Reddit API key needed - uses the public JSON endpoint.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>No Reddit API key required</div>
+        <div class="perk"><div class="perk-dot"></div>Scrape posts and comments</div>
+        <div class="perk"><div class="perk-dot"></div>Export to CSV or JSON</div>
+        <div class="perk"><div class="perk-dot"></div>MIT license - fork it freely</div>
       </div>
-    </div>
+      <span class="choice-cta">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
 
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does this Reddit scraper require an API key?","acceptedAnswer":{"@type":"Answer","text":"No. It uses Reddit's public JSON API which requires no authentication."}},{"@type":"Question","name":"Is scraping Reddit legal?","acceptedAnswer":{"@type":"Answer","text":"Scraping publicly available data is generally legal. This tool respects rate limits and only accesses public data."}}]}
-    </script>
+  </div>
 
-  </main>
+  <p class="choice-note">No API key required for scraping. Optional AI analysis uses your own Anthropic key.</p>
 
-  <aside class="tool-sidebar">
-    <div class="sidebar-box">
-      <h4>Requirements</h4>
-      <ul>
-        <li>Python 3.8+</li>
-        <li>requests, pandas</li>
-        <li>Claude API key (optional)</li>
-        <li>No Reddit API key</li>
-      </ul>
-    </div>
-    </div>
-    <div class="sidebar-box related-tools">
-      <h4>Related Tools</h4>
-      <a href="hacker-news-digest.html">HN Daily Digest</a>
-      <a href="tweet-thread-archiver.html">Tweet Thread Archiver</a>
-      <a href="news-sentiment.html">News Sentiment Analyzer</a>
-      <a href="seo-keyword-extractor.html">SEO Keyword Extractor</a>
-    </div>
-    </div>
-  </aside>
 </div>
 
 <footer class="footer">
@@ -158,9 +117,14 @@ python scraper.py --subreddit machinelearning --sort hot --summarize --api-key s
       <div class="footer-col">
         <strong>Tools</strong>
         <a href="../index.html#tools">Browse all tools</a>
-        <a href="youtube-transcript.html">YouTube Transcript</a>
-        <a href="pdf-summarizer.html">PDF Summarizer</a>
-        <a href="email-writer.html">AI Email Writer</a>
+        <a href="hacker-news-digest.html">HN Daily Digest</a>
+        <a href="news-sentiment.html">News Sentiment</a>
+      </div>
+      <div class="footer-col">
+        <strong>Resources</strong>
+        <a href="../guides/">Guides</a>
+        <a href="../guides/how-to-use-claude-api.html">Get a Claude API key</a>
+        <a href="../privacy.html">Privacy policy</a>
       </div>
     </nav>
   </div>

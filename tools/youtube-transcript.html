@@ -3,118 +3,117 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free YouTube Transcript Extractor (Python, No API Key) - getaitools.dev</title>
-  <meta name="description" content="Free open source YouTube transcript extractor. Download transcripts from any YouTube video or playlist. Summarize with Claude AI. No YouTube API key required. Python script on GitHub."/>
-  <meta name="keywords" content="free youtube transcript extractor, youtube transcript downloader, youtube transcript python, extract youtube captions free, youtube transcript api"/>
+  <title>Free YouTube Transcript Extractor (Python) - getaitools.dev</title>
+  <meta name="description" content="Free open source YouTube transcript extractor. Downloads subtitles from any YouTube video, cleans them up, and optionally summarizes with Claude AI. Download from GitHub."/>
+  <meta name="keywords" content="free youtube transcript extractor, youtube subtitle downloader, youtube transcript python, download youtube captions free"/>
   <link rel="canonical" href="https://getaitools.dev/tools/youtube-transcript"/>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"YouTube Transcript Extractor","description":"Free open source tool to extract transcripts from YouTube videos. No API key required.","programmingLanguage":"Python","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/></noscript>
   <link rel="stylesheet" href="../style.css"/>
+  <style>
+    .choice-page { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .choice-header { text-align: center; margin-bottom: 3rem; }
+    .choice-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .choice-header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.6rem; }
+    .choice-header p { font-size: 0.97rem; color: var(--ink3); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+    .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .choice-card { border: 1px solid var(--line); border-radius: 10px; padding: 2rem; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+    .choice-card:hover { border-color: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .choice-card.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .choice-card.primary:hover { background: var(--ink2); border-color: var(--ink2); }
+    .choice-card.disabled { background: var(--off); color: var(--ink3); border-color: var(--line); cursor: default; pointer-events: none; }
+    .choice-card.disabled:hover { transform: none; box-shadow: none; border-color: var(--line); }
+    .choice-card-icon { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.25rem; background: rgba(255,255,255,0.12); }
+    .choice-card.secondary .choice-card-icon { background: var(--line2); }
+    .choice-card.disabled .choice-card-icon { background: var(--line2); }
+    .choice-card h2 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .choice-card p { font-size: 0.85rem; line-height: 1.65; flex: 1; margin-bottom: 1.5rem; }
+    .choice-card.primary p { color: rgba(255,255,255,0.7); }
+    .choice-card.secondary p { color: var(--ink3); }
+    .choice-card-perks { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.75rem; }
+    .perk { font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    .choice-card.primary .perk { color: rgba(255,255,255,0.8); }
+    .choice-card.secondary .perk { color: var(--ink3); }
+    .choice-card.disabled .perk { color: var(--ink4); }
+    .perk-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; opacity: 0.6; }
+    .choice-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; border-radius: 6px; font-size: 0.88rem; font-weight: 700; font-family: var(--font); align-self: flex-start; }
+    .choice-card.primary .choice-cta { background: #fff; color: var(--ink); }
+    .choice-card.secondary .choice-cta { background: var(--ink); color: #fff; }
+    .choice-card.disabled .choice-cta { background: var(--line2); color: var(--ink4); border: 1px solid var(--line); }
+    .choice-note { text-align: center; margin-top: 2rem; font-size: 0.78rem; color: var(--ink4); }
+    .coming-soon-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--line2); border: 1px solid var(--line); color: var(--ink4); padding: 2px 8px; border-radius: 3px; margin-bottom: 0.75rem; }
+    @media (max-width: 600px) { .choice-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
+
 <header class="nav">
   <div class="nav-inner">
     <a href="../index.html" class="logo">GetAITools<span class="logo-dot">.dev</span></a>
-    <nav class="nav-links"><a href="../index.html#tools">Browse Tools</a></nav>
+    <nav class="nav-links">
+      <a href="../index.html#tools">Browse Tools</a>
+      <a href="../guides/index.html">Guides</a>
+    </nav>
     <a href="https://github.com/Get-Ai-Tools/youtube-transcript-extractor" target="_blank" class="nav-gh">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      View on GitHub
+      GitHub
     </a>
   </div>
 </header>
 
-<div class="tool-page">
-  <main class="tool-page-main">
-    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem"><a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › YouTube Transcript Extractor</nav>
+<div class="choice-page">
 
-    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem">
-      <span style="font-size:2rem">📺</span>
-      <div>
-        <span style="font-size:0.65rem;font-weight:700;letter-spacing:1px;color:var(--ink3);background:var(--line2);border:1px solid var(--line);padding:2px 8px;border-radius:3px;text-transform:uppercase">Content</span>
+  <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:2rem">
+    <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › YouTube Transcript Extractor
+  </nav>
+
+  <div class="choice-header">
+    <div class="choice-icon">▶️</div>
+    <h1>YouTube Transcript Extractor</h1>
+    <p>Download subtitles from any YouTube video and optionally summarize them with Claude AI.</p>
+  </div>
+
+  <div class="choice-grid">
+
+    <div class="choice-card disabled">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
+      <div class="coming-soon-badge">Coming soon</div>
+      <h2>Use in Browser</h2>
+      <p>Browser version is not available yet - YouTube requires server-side access to fetch transcripts.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>In development</div>
+        <div class="perk"><div class="perk-dot"></div>Use the Python version in the meantime</div>
+      </div>
+      <span class="choice-cta">Not available yet</span>
     </div>
 
-    <h1>Free YouTube Transcript Extractor</h1>
-    <p class="tool-page-lead">Download transcripts from any YouTube video or playlist. No YouTube API key needed. Add a Claude API key to get AI summaries, key points, and chapter breakdowns.</p>
-
-    <div class="gh-cta">
-      <h3>Download from GitHub</h3>
-      <p>Free and open source. Works with any video that has captions (auto-generated or manual).</p>
-      <a href="https://github.com/Get-Ai-Tools/youtube-transcript-extractor" target="_blank" class="gh-btn">View on GitHub →</a>
-    </div>
-
-    <h2>What it does</h2>
-    <p>Uses the <code>youtube-transcript-api</code> library to pull captions from any YouTube video without requiring a YouTube Data API key. It handles single videos, full playlists, and batch processing from a URL list.</p>
-    <p>With a Claude API key, you can also get AI-generated summaries, extract the top 5-8 key points, generate a chapter breakdown, or run an interactive Q&A session where you ask questions about the video content.</p>
-
-    <h2>Features</h2>
-    <ul>
-      <li>Extract transcripts from any video with captions (auto-generated or manual)</li>
-      <li>Process entire playlists automatically</li>
-      <li>Batch process from a file of URLs</li>
-      <li>Export as plain text, Markdown (with timestamps), or JSON</li>
-      <li>Multi-language support - specify preferred language(s)</li>
-      <li>Optional: AI summary, key points, chapter breakdown (Claude API)</li>
-      <li>Optional: Interactive Q&A mode about video content</li>
-    </ul>
-
-    <h2>Quick start</h2>
-    <pre>git clone https://github.com/Get-Ai-Tools/youtube-transcript-extractor
-cd youtube-transcript
-pip install -r requirements.txt
-
-# Basic transcript extraction
-python extractor.py --url https://youtube.com/watch?v=VIDEO_ID
-
-# With AI summary and key points
-python extractor.py --url https://youtube.com/watch?v=VIDEO_ID \
-  --summarize --keypoints --api-key sk-ant-...
-
-# Full playlist to markdown
-python extractor.py --url https://youtube.com/playlist?list=PLAYLIST_ID \
-  --format markdown --out ./transcripts
-
-# Q&A mode
-python extractor.py --url https://youtube.com/watch?v=VIDEO_ID \
-  --mode qa --api-key sk-ant-...</pre>
-
-    <h2>Requirements</h2>
-    <ul>
-      <li>Python 3.8+</li>
-      <li><code>youtube-transcript-api</code>, <code>requests</code> (auto-installed)</li>
-      <li>Claude API key - only needed for AI features. Free at <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a></li>
-    </ul>
-
-    <div class="faq-list">
-      <div class="faq-q">
-        <h3>Does this require a YouTube API key?</h3>
-        <p>No. Transcript extraction uses the <code>youtube-transcript-api</code> library which doesn't need any YouTube credentials. A Claude API key is only needed for AI features.</p>
+    <a href="https://github.com/Get-Ai-Tools/youtube-transcript-extractor" target="_blank" class="choice-card secondary">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
       </div>
-      <div class="faq-q">
-        <h3>What if a video doesn't have captions?</h3>
-        <p>The tool will report that no transcript is available and skip to the next video. It works with both manually added captions and YouTube's auto-generated captions.</p>
+      <h2>Run with Python</h2>
+      <p>Download the open source script. Extract transcripts from any YouTube video with auto-generated or manual captions.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>Works on any public YouTube video</div>
+        <div class="perk"><div class="perk-dot"></div>Batch process playlists</div>
+        <div class="perk"><div class="perk-dot"></div>Optional AI summarization</div>
+        <div class="perk"><div class="perk-dot"></div>MIT license - fork it freely</div>
       </div>
-      <div class="faq-q">
-        <h3>Can I use it for foreign-language videos?</h3>
-        <p>Yes. Use <code>--language de fr es</code> to specify preferred languages in order of priority. The tool will fall back to auto-generated transcripts if the preferred language isn't available.</p>
-      </div>
-    </div>
-  </main>
+      <span class="choice-cta">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
 
-  <aside class="tool-sidebar">
-    <div class="sidebar-box">
-      <h4>Requirements</h4>
-      <ul>
-        <li>Python 3.8+</li>
-        <li>youtube-transcript-api</li>
-        <li>Claude API key (optional)</li>
-        <li>No YouTube API key</li>
-      </ul>
-    </div>
+  </div>
+
+  <p class="choice-note">The Python version uses your own Anthropic API key for summarization. <a href="../guides/how-to-use-claude-api.html" style="color:var(--ink3);text-decoration:underline;text-underline-offset:2px">Get a free API key →</a></p>
+
+</div>
 
 <footer class="footer">
   <div class="footer-inner">
@@ -123,8 +122,14 @@ python extractor.py --url https://youtube.com/watch?v=VIDEO_ID \
       <div class="footer-col">
         <strong>Tools</strong>
         <a href="../index.html#tools">Browse all tools</a>
-        <a href="reddit-scraper.html">Reddit Scraper</a>
         <a href="pdf-summarizer.html">PDF Summarizer</a>
+        <a href="meeting-summarizer.html">Meeting Summarizer</a>
+      </div>
+      <div class="footer-col">
+        <strong>Resources</strong>
+        <a href="../guides/">Guides</a>
+        <a href="../guides/how-to-use-claude-api.html">Get a Claude API key</a>
+        <a href="../privacy.html">Privacy policy</a>
       </div>
     </nav>
   </div>

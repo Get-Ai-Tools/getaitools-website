@@ -109,6 +109,42 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://getaitools.dev/tools/pdf-summarizer-app</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getaitools.dev/tools/meeting-summarizer-app</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getaitools.dev/tools/email-writer-app</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getaitools.dev/tools/seo-keyword-extractor-app</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getaitools.dev/tools/news-sentiment-app</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://getaitools.dev/tools/hacker-news-digest-app</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://getaitools.dev/privacy</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>yearly</changefreq>

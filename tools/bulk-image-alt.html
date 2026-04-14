@@ -3,17 +3,44 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Bulk Image Alt Text Generator (Python, Claude AI Vision) - getaitools.dev</title>
-  <meta name="description" content="Free open source bulk image alt text generator. Uses Claude AI vision to generate SEO-optimized alt text for entire image folders or HTML files. Download from GitHub."/>
-  <meta name="keywords" content="bulk alt text generator, image alt text ai, seo alt text generator free, batch alt text python, image accessibility tool free"/>
+  <title>Free Bulk Image Alt Text Generator (Python, Claude AI) - getaitools.dev</title>
+  <meta name="description" content="Free open source bulk image alt text generator using Claude AI vision. Process entire folders of images and export alt text to CSV. Download from GitHub."/>
+  <meta name="keywords" content="free bulk image alt text generator, ai alt text generator, image accessibility tool free, bulk alt text python"/>
   <link rel="canonical" href="https://getaitools.dev/tools/bulk-image-alt"/>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Bulk Image Alt Text Generator","description":"Free open source bulk image alt text generator using Claude AI vision.","programmingLanguage":"Python","codeRepository":"https://github.com/Get-Ai-Tools/bulk-image-alt-generator","license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/></noscript>
   <link rel="stylesheet" href="../style.css"/>
+  <style>
+    .choice-page { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .choice-header { text-align: center; margin-bottom: 3rem; }
+    .choice-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .choice-header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.6rem; }
+    .choice-header p { font-size: 0.97rem; color: var(--ink3); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+    .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .choice-card { border: 1px solid var(--line); border-radius: 10px; padding: 2rem; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+    .choice-card:hover { border-color: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .choice-card.secondary .choice-card-icon { background: var(--line2); }
+    .choice-card.disabled { background: var(--off); color: var(--ink3); border-color: var(--line); cursor: default; pointer-events: none; }
+    .choice-card.disabled:hover { transform: none; box-shadow: none; border-color: var(--line); }
+    .choice-card-icon { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.25rem; background: rgba(255,255,255,0.12); }
+    .choice-card.disabled .choice-card-icon { background: var(--line2); }
+    .choice-card h2 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .choice-card p { font-size: 0.85rem; line-height: 1.65; flex: 1; margin-bottom: 1.5rem; }
+    .choice-card.secondary p { color: var(--ink3); }
+    .choice-card-perks { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1.75rem; }
+    .perk { font-size: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    .choice-card.secondary .perk { color: var(--ink3); }
+    .choice-card.disabled .perk { color: var(--ink4); }
+    .perk-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; opacity: 0.6; }
+    .choice-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1.25rem; border-radius: 6px; font-size: 0.88rem; font-weight: 700; font-family: var(--font); align-self: flex-start; }
+    .choice-card.secondary .choice-cta { background: var(--ink); color: #fff; }
+    .choice-card.disabled .choice-cta { background: var(--line2); color: var(--ink4); border: 1px solid var(--line); }
+    .choice-note { text-align: center; margin-top: 2rem; font-size: 0.78rem; color: var(--ink4); }
+    .coming-soon-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--line2); border: 1px solid var(--line); color: var(--ink4); padding: 2px 8px; border-radius: 3px; margin-bottom: 0.75rem; }
+    @media (max-width: 600px) { .choice-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -26,117 +53,61 @@
     </nav>
     <a href="https://github.com/Get-Ai-Tools/bulk-image-alt-generator" target="_blank" class="nav-gh">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      View on GitHub
+      GitHub
     </a>
   </div>
 </header>
 
+<div class="choice-page">
 
-<div class="tool-page">
-  <main class="tool-page-main">
+  <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:2rem">
+    <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › Bulk Image Alt Generator
+  </nav>
 
-    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.5rem">
-      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › Bulk Image Alt Text Generator
-    </nav>
-
-    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem">
-      <span style="font-size:2rem">🖼️</span>
-      <div>
-        <span style="font-size:0.65rem;font-weight:700;letter-spacing:1px;color:var(--ink3);background:var(--line2);border:1px solid var(--line);padding:2px 8px;border-radius:3px;text-transform:uppercase">Content</span>
-      </div>
-    </div>
-
+  <div class="choice-header">
+    <div class="choice-icon">🖼️</div>
     <h1>Bulk Image Alt Text Generator</h1>
-    <p class="tool-page-lead">Generate SEO-optimized alt text for an entire folder of images using Claude AI's vision. Scan HTML files for missing alt tags and optionally write them back automatically. Great for WordPress, Shopify, and accessibility compliance.</p>
+    <p>Generate descriptive alt text for entire folders of images using Claude AI vision. Export to CSV for your CMS.</p>
+  </div>
 
-    <div class="gh-cta">
-      <h3>Download from GitHub</h3>
-      <p>Free and open source. Process hundreds of images for under a dollar with claude-haiku.</p>
-      <a href="https://github.com/Get-Ai-Tools/bulk-image-alt-generator" target="_blank" class="gh-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        View on GitHub →
-      </a>
-    </div>
+  <div class="choice-grid">
 
-    <h2>What it does</h2>
-    <p>Uses Claude AI's vision capabilities to actually look at each image and write accurate, descriptive alt text. Supports local image folders, scanning HTML files for missing alt attributes (and optionally writing them back), and batch processing a list of image URLs.</p>
-
-    <h2>Features</h2>
-    <ul>
-      <li>Process entire folders of images (.jpg, .png, .webp, .gif, .bmp)</li>
-      <li>Scan HTML files and find images with missing alt attributes</li>
-      <li>Write fixed alt text back to HTML with <code>--fix</code></li>
-      <li>4 style modes: descriptive, SEO-optimized, concise, e-commerce</li>
-      <li>Add page context to improve relevance</li>
-      <li>Export results to CSV or JSON</li>
-    </ul>
-
-    <h2>Quick start</h2>
-    <pre>git clone https://github.com/Get-Ai-Tools/bulk-image-alt-generator
-cd bulk-image-alt-generator
-pip install -r requirements.txt
-
-# Process a folder of images
-python alt_generator.py --api-key sk-ant-... --folder ./images
-
-# SEO style with context
-python alt_generator.py --api-key sk-ant-... --folder ./product-photos \
-  --style seo --context "women's fashion e-commerce store"
-
-# Fix missing alt tags in an HTML file
-python alt_generator.py --api-key sk-ant-... --html index.html --fix --missing-only</pre>
-
-    <h2>Style options</h2>
-    <ul>
-      <li><strong>descriptive</strong> - full description for accessibility compliance</li>
-      <li><strong>seo</strong> - keyword-rich, under 125 characters</li>
-      <li><strong>concise</strong> - 5-10 words, great for icons</li>
-      <li><strong>ecommerce</strong> - product + color + key feature format</li>
-    </ul>
-
-    <h2>Requirements</h2>
-    <ul>
-      <li>Python 3.8+</li>
-      <li><code>requests</code>, <code>anthropic</code> (auto-installed)</li>
-      <li>Claude API key - get one free at <a href="https://console.anthropic.com" target="_blank" style="color:var(--green)">console.anthropic.com</a></li>
-    </ul>
-
-    <div class="faq-list">
-      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
-        <h3 itemprop="name">How much does it cost per image?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Using claude-haiku, each image costs roughly $0.001-$0.003 to process. You can generate alt text for 500 images for under $1.50.</p>
-        </div>
+    <div class="choice-card disabled">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
-      <div class="faq-q" itemscope itemtype="https://schema.org/Question">
-        <h3 itemprop="name">Can I use this for WordPress?</h3>
-        <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Yes. Export the results as CSV, then use WordPress's bulk import tools or a plugin like WP All Import to update alt text for your media library images in bulk.</p>
-        </div>
+      <div class="coming-soon-badge">Coming soon</div>
+      <h2>Use in Browser</h2>
+      <p>Browser version is not available yet - bulk image processing works best as a local script.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>In development</div>
+        <div class="perk"><div class="perk-dot"></div>Use the Python version in the meantime</div>
       </div>
+      <span class="choice-cta">Not available yet</span>
     </div>
 
-  </main>
+    <a href="https://github.com/Get-Ai-Tools/bulk-image-alt-generator" target="_blank" class="choice-card secondary">
+      <div class="choice-card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </div>
+      <h2>Run with Python</h2>
+      <p>Download the open source script. Process entire image folders and export alt text ready for your CMS.</p>
+      <div class="choice-card-perks">
+        <div class="perk"><div class="perk-dot"></div>Process entire image folders</div>
+        <div class="perk"><div class="perk-dot"></div>Export to CSV for bulk import</div>
+        <div class="perk"><div class="perk-dot"></div>Supports JPG, PNG, WebP</div>
+        <div class="perk"><div class="perk-dot"></div>MIT license - fork it freely</div>
+      </div>
+      <span class="choice-cta">
+        View on GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
 
-  <aside class="tool-sidebar">
-    <div class="sidebar-box">
-      <h4>Requirements</h4>
-      <ul>
-        <li>Python 3.8+</li>
-        <li>requests, anthropic</li>
-        <li>Claude API key</li>
-      </ul>
-    </div>
-    </div>
-    <div class="sidebar-box related-tools">
-      <h4>Related Tools</h4>
-      <a href="seo-keyword-extractor.html">SEO Keyword Extractor</a>
-      <a href="sheets-ai.html">Sheets AI</a>
-      <a href="pdf-summarizer.html">PDF Summarizer</a>
-      <a href="email-writer.html">AI Email Writer</a>
-    </div>
-    </div>
-  </aside>
+  </div>
+
+  <p class="choice-note">Uses your own Anthropic API key for AI vision. <a href="../guides/how-to-use-claude-api.html" style="color:var(--ink3);text-decoration:underline;text-underline-offset:2px">Get a free API key →</a></p>
+
 </div>
 
 <footer class="footer">
@@ -146,8 +117,14 @@ python alt_generator.py --api-key sk-ant-... --html index.html --fix --missing-o
       <div class="footer-col">
         <strong>Tools</strong>
         <a href="../index.html#tools">Browse all tools</a>
-        <a href="reddit-scraper.html">Reddit Scraper</a>
+        <a href="seo-keyword-extractor.html">SEO Keyword Extractor</a>
         <a href="pdf-summarizer.html">PDF Summarizer</a>
+      </div>
+      <div class="footer-col">
+        <strong>Resources</strong>
+        <a href="../guides/">Guides</a>
+        <a href="../guides/how-to-use-claude-api.html">Get a Claude API key</a>
+        <a href="../privacy.html">Privacy policy</a>
       </div>
     </nav>
   </div>

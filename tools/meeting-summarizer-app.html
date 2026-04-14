@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meeting Transcript Summarizer - Free, No Signup | GetAITools.dev</title>
+  <meta name="description" content="Summarize meeting transcripts with AI instantly in your browser. Extracts action items, decisions, and key points. No signup, no subscription. Use your own API key."/>
+  <link rel="canonical" href="https://getaitools.dev/tools/meeting-summarizer"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/></noscript>
+  <link rel="stylesheet" href="../style.css"/>
+  <style>
+    .tool-hero { background: var(--off); border-bottom: 1px solid var(--line); padding: 3rem 2rem 2.5rem; }
+    .tool-hero-inner { max-width: 1080px; margin: 0 auto; }
+    .tool-hero-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink3); background: var(--line2); border: 1px solid var(--line); padding: 3px 10px; border-radius: 3px; margin-bottom: 1rem; }
+    .tool-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.6rem; }
+    .tool-hero-sub { font-size: 0.97rem; color: var(--ink3); max-width: 560px; line-height: 1.7; margin-bottom: 1.75rem; }
+    .tool-cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--ink); color: #fff; padding: 0.7rem 1.4rem; border-radius: 6px; font-size: 0.9rem; font-weight: 700; font-family: var(--font); border: none; cursor: pointer; transition: background 0.12s; }
+    .btn-primary:hover { background: var(--ink2); }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--white); color: var(--ink); padding: 0.7rem 1.4rem; border-radius: 6px; font-size: 0.9rem; font-weight: 600; font-family: var(--font); border: 1px solid var(--line); cursor: pointer; transition: border-color 0.12s, background 0.12s; text-decoration: none; }
+    .btn-secondary:hover { border-color: var(--ink); background: var(--off); }
+    .browser-tool { max-width: 1080px; margin: 0 auto; padding: 2.5rem 2rem 3rem; }
+    .tool-section-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--ink4); margin-bottom: 1.5rem; }
+    .api-key-box { background: var(--off); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+    .api-key-box label { font-size: 0.82rem; font-weight: 700; display: block; margin-bottom: 0.5rem; }
+    .api-key-row { display: flex; gap: 0.5rem; align-items: center; }
+    .api-key-input { flex: 1; padding: 0.55rem 0.85rem; border: 1px solid var(--line); border-radius: 5px; font-size: 0.85rem; font-family: var(--font); background: var(--white); color: var(--ink); outline: none; transition: border-color 0.12s; }
+    .api-key-input:focus { border-color: var(--green); }
+    .api-key-saved { font-size: 0.75rem; color: var(--green); margin-top: 0.4rem; display: none; }
+    .api-key-hint { font-size: 0.75rem; color: var(--ink4); margin-top: 0.4rem; }
+    .api-key-hint a { color: var(--green); }
+    .btn-sm { padding: 0.5rem 0.9rem; border-radius: 5px; font-size: 0.8rem; font-weight: 600; font-family: var(--font); cursor: pointer; border: 1px solid var(--line); background: var(--white); color: var(--ink); transition: background 0.12s; white-space: nowrap; }
+    .btn-sm:hover { background: var(--off); }
+    .options-row { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .option-group { flex: 1; min-width: 200px; }
+    .option-group label { font-size: 0.78rem; font-weight: 700; color: var(--ink3); display: block; margin-bottom: 0.4rem; }
+    .option-select { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--line); border-radius: 5px; font-size: 0.85rem; font-family: var(--font); background: var(--white); color: var(--ink); outline: none; cursor: pointer; }
+    .option-select:focus { border-color: var(--green); }
+    .input-area { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem; }
+    .input-area textarea { width: 100%; padding: 1rem 1.25rem; font-size: 0.88rem; font-family: var(--font); color: var(--ink); background: var(--white); border: none; outline: none; resize: vertical; min-height: 200px; line-height: 1.6; box-sizing: border-box; }
+    .input-area textarea:focus { background: var(--off); }
+    .input-char-count { padding: 0.4rem 1.25rem; font-size: 0.72rem; color: var(--ink4); background: var(--off); border-top: 1px solid var(--line); }
+    .progress-bar-wrap { background: var(--line2); border-radius: 4px; height: 4px; margin-bottom: 1.25rem; overflow: hidden; display: none; }
+    .progress-bar { height: 100%; background: var(--ink); border-radius: 4px; width: 0%; transition: width 0.3s ease; }
+    .result-box { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: none; }
+    .result-header { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem; background: var(--off); border-bottom: 1px solid var(--line); }
+    .result-header span { font-size: 0.78rem; font-weight: 700; color: var(--ink3); }
+    .result-content { padding: 1.5rem; font-size: 0.9rem; line-height: 1.8; color: var(--ink2); white-space: pre-wrap; min-height: 120px; }
+    .error-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 1rem 1.25rem; font-size: 0.85rem; color: #dc2626; margin-bottom: 1rem; display: none; }
+    .section-divider { border: none; border-top: 1px solid var(--line); margin: 0; }
+    .github-section { max-width: 1080px; margin: 0 auto; padding: 2.5rem 2rem 1rem; display: grid; grid-template-columns: 1fr 300px; gap: 3rem; align-items: flex-start; }
+    @media (max-width: 760px) { .github-section { grid-template-columns: 1fr; } .options-row { flex-direction: column; } }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">GetAITools<span class="logo-dot">.dev</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#tools">Browse Tools</a>
+      <a href="../guides/index.html">Guides</a>
+    </nav>
+    <a href="https://github.com/Get-Ai-Tools/meeting-summarizer" target="_blank" class="nav-gh">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <nav style="font-size:0.78rem;color:var(--ink4);margin-bottom:1.25rem">
+      <a href="../index.html" style="color:var(--ink4)">Home</a> › <a href="../index.html#tools" style="color:var(--ink4)">Tools</a> › <a href="meeting-summarizer.html" style="color:var(--ink4)">Meeting Summarizer</a> › Browser
+    </nav>
+    <div class="tool-hero-tag">🎙️ Productivity</div>
+    <h1>Meeting Transcript Summarizer</h1>
+    <p class="tool-hero-sub">Paste your meeting transcript and get structured notes with action items, decisions, and key points. No signup, no subscription. Your API key stays in your browser.</p>
+    <div class="tool-cta-row">
+      <button class="btn-primary" onclick="document.getElementById('browser-tool').scrollIntoView({behavior:'smooth'})">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Summarize transcript
+      </button>
+      <a href="https://github.com/Get-Ai-Tools/meeting-summarizer" target="_blank" class="btn-secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        Get on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="browser-tool" id="browser-tool">
+  <div class="tool-section-label">Try in browser - free, no signup</div>
+
+  <div class="api-key-box">
+    <label for="api-key">Your Anthropic API key</label>
+    <div class="api-key-row">
+      <input type="password" id="api-key" class="api-key-input" placeholder="sk-ant-api03-..." autocomplete="off"/>
+      <button class="btn-sm" onclick="toggleKeyVisibility()">Show</button>
+      <button class="btn-sm" onclick="saveKey()" style="background:var(--ink);color:#fff;border-color:var(--ink)">Save</button>
+      <button class="btn-sm" onclick="clearKey()" style="color:#dc2626;border-color:#fecaca">Clear</button>
+    </div>
+    <div class="api-key-saved" id="key-saved">Key saved to your browser.</div>
+    <p class="api-key-hint">Your key is saved in your browser only - never sent to our servers. Need a key? <a href="https://console.anthropic.com" target="_blank">Get one free at console.anthropic.com</a></p>
+  </div>
+
+  <div class="options-row">
+    <div class="option-group">
+      <label>Output format</label>
+      <select id="output-type" class="option-select">
+        <option value="structured">Structured notes (action items, decisions, points)</option>
+        <option value="summary">Paragraph summary</option>
+        <option value="bullets">Bullet points only</option>
+      </select>
+    </div>
+    <div class="option-group">
+      <label>Model</label>
+      <select id="model" class="option-select">
+        <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 - fastest, cheapest</option>
+        <option value="claude-sonnet-4-6">Claude Sonnet 4.6 - balanced</option>
+        <option value="claude-opus-4-6">Claude Opus 4.6 - most capable</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-bottom:1.5rem">
+    <label style="font-size:0.78rem;font-weight:700;color:var(--ink3);display:block;margin-bottom:0.4rem">
+      Custom instructions <span style="font-weight:400;color:var(--ink4)">(optional)</span>
+    </label>
+    <textarea id="custom-instructions" placeholder='e.g. "Focus on technical decisions only" or "Output in Spanish"'
+      style="width:100%;padding:0.6rem 0.85rem;border:1px solid var(--line);border-radius:5px;font-size:0.85rem;font-family:var(--font);color:var(--ink);background:var(--white);outline:none;resize:vertical;min-height:60px;line-height:1.5;transition:border-color 0.12s;box-sizing:border-box"
+      onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--line)'"></textarea>
+  </div>
+
+  <div class="input-area">
+    <textarea id="transcript-input" placeholder="Paste your meeting transcript here... Supports plain text, .vtt (Zoom/Teams), and .srt formats." oninput="updateCharCount()"></textarea>
+    <div class="input-char-count" id="char-count">0 characters</div>
+  </div>
+
+  <div class="error-box" id="error-box"></div>
+
+  <div class="progress-bar-wrap" id="progress-wrap">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <button class="btn-primary" id="summarize-btn" onclick="summarize()" style="margin-bottom:1.5rem;width:100%;justify-content:center;padding:0.85rem">
+    Summarize Transcript
+  </button>
+
+  <div class="result-box" id="result-box">
+    <div class="result-header">
+      <span id="result-label">Meeting Notes</span>
+      <button class="btn-sm" onclick="copyResult()">Copy</button>
+    </div>
+    <div class="result-content" id="result-content"></div>
+  </div>
+</div>
+
+<hr class="section-divider"/>
+
+<div class="github-section">
+  <main>
+    <div class="gh-cta">
+      <h3>Run it locally with Python</h3>
+      <p>Prefer to run it on your machine? Batch process folders of transcripts, export to Markdown, HTML, or JSON.</p>
+      <a href="https://github.com/Get-Ai-Tools/meeting-summarizer" target="_blank" class="gh-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub →
+      </a>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-list">
+      <div class="faq-q">
+        <h3>Is my API key safe?</h3>
+        <p>Yes. Your key is saved in your browser's localStorage only. When you hit Summarize, your browser sends the key and transcript to a thin Cloudflare proxy function that immediately forwards it to Anthropic - nothing is logged or stored. The proxy <a href="https://github.com/Get-Ai-Tools/getaitools-website/blob/master/functions/api/chat.js" target="_blank" style="color:var(--green)">source code is public</a>.</p>
+      </div>
+      <div class="faq-q">
+        <h3>What transcript formats work?</h3>
+        <p>Plain text works best. You can also paste .vtt (WebVTT from Zoom/Teams) or .srt content directly - the AI handles the timestamp formatting in the input.</p>
+      </div>
+      <div class="faq-q">
+        <h3>How much does it cost?</h3>
+        <p>Using Claude Haiku (the default), a typical 1-hour meeting transcript costs around $0.001-$0.003. You're billed directly by Anthropic.</p>
+      </div>
+    </div>
+  </main>
+
+  <aside class="tool-sidebar">
+    <div class="sidebar-box">
+      <h4>Browser tool</h4>
+      <ul>
+        <li>No signup required</li>
+        <li>Key stays in your browser</li>
+        <li>Uses your Anthropic key</li>
+        <li>Open source proxy</li>
+      </ul>
+    </div>
+    <div class="sidebar-box related-tools">
+      <h4>Related tools</h4>
+      <a href="pdf-summarizer.html">PDF Summarizer</a>
+      <a href="news-sentiment.html">News Sentiment</a>
+      <a href="seo-keyword-extractor.html">SEO Keywords</a>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><span class="footer-logo">GetAITools<span class="logo-dot">.dev</span></span><p>Free, open source AI tools.</p></div>
+    <nav class="footer-nav">
+      <div class="footer-col">
+        <strong>Tools</strong>
+        <a href="../index.html#tools">Browse all tools</a>
+        <a href="pdf-summarizer.html">PDF Summarizer</a>
+        <a href="email-writer.html">AI Email Writer</a>
+      </div>
+      <div class="footer-col">
+        <strong>Resources</strong>
+        <a href="../guides/">Guides</a>
+        <a href="../guides/how-to-use-claude-api.html">Get a Claude API key</a>
+        <a href="../privacy.html">Privacy policy</a>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">© 2026 getaitools.dev</div>
+</footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('anthropic_api_key');
+  if (saved) {
+    document.getElementById('api-key').value = saved;
+    document.getElementById('key-saved').style.display = 'block';
+  }
+});
+
+function saveKey() {
+  const key = document.getElementById('api-key').value.trim();
+  if (!key) return;
+  localStorage.setItem('anthropic_api_key', key);
+  const el = document.getElementById('key-saved');
+  el.style.display = 'block';
+  el.textContent = 'Key saved to your browser.';
+}
+
+function clearKey() {
+  localStorage.removeItem('anthropic_api_key');
+  document.getElementById('api-key').value = '';
+  const el = document.getElementById('key-saved');
+  el.style.display = 'block';
+  el.textContent = 'Key cleared from your browser.';
+  setTimeout(() => el.style.display = 'none', 3000);
+}
+
+function toggleKeyVisibility() {
+  const input = document.getElementById('api-key');
+  const btn = event.target;
+  if (input.type === 'password') { input.type = 'text'; btn.textContent = 'Hide'; }
+  else { input.type = 'password'; btn.textContent = 'Show'; }
+}
+
+function updateCharCount() {
+  const len = document.getElementById('transcript-input').value.length;
+  document.getElementById('char-count').textContent = len.toLocaleString() + ' characters';
+}
+
+const SYSTEM_PROMPTS = {
+  structured: `You are a meeting notes assistant. Given a meeting transcript, produce structured notes with these sections:
+- **Action Items**: bullet list with owner names if mentioned
+- **Key Decisions**: what was decided
+- **Discussion Points**: main topics discussed
+- **Open Questions**: unresolved questions
+- **Participants**: names mentioned (if any)
+Keep it concise and scannable.`,
+  summary: `You are a meeting notes assistant. Given a meeting transcript, write a concise paragraph summary (3-5 sentences) covering what was discussed, what was decided, and what needs to happen next.`,
+  bullets: `You are a meeting notes assistant. Given a meeting transcript, produce a clean bullet-point list of the most important points, decisions, and action items. Be concise - no more than 15 bullets.`
+};
+
+async function summarize() {
+  const apiKey = document.getElementById('api-key').value.trim();
+  const transcript = document.getElementById('transcript-input').value.trim();
+
+  if (!apiKey) { showError('Please enter your Anthropic API key first.'); return; }
+  if (!transcript) { showError('Please paste a meeting transcript first.'); return; }
+
+  localStorage.setItem('anthropic_api_key', apiKey);
+
+  const outputType = document.getElementById('output-type').value;
+  const model = document.getElementById('model').value;
+  const customInstructions = document.getElementById('custom-instructions').value.trim();
+  const btn = document.getElementById('summarize-btn');
+
+  showError('');
+  btn.disabled = true;
+  btn.textContent = 'Summarizing...';
+  document.getElementById('result-box').style.display = 'none';
+  document.getElementById('progress-wrap').style.display = 'block';
+  setProgress(20);
+
+  let system = SYSTEM_PROMPTS[outputType];
+  if (customInstructions) system += '\n\nAdditional instructions: ' + customInstructions;
+
+  const truncated = transcript.slice(0, 80000);
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        apiKey,
+        model,
+        maxTokens: 2048,
+        system,
+        messages: [{ role: 'user', content: 'Here is the meeting transcript:\n\n' + truncated }]
+      })
+    });
+
+    setProgress(90);
+    const data = await res.json();
+
+    if (!res.ok || data.error) {
+      showError(data.error?.message || data.error || 'API error. Check your API key and try again.');
+      return;
+    }
+
+    const result = data.content?.[0]?.text || '';
+    const labels = { structured: 'Meeting Notes', summary: 'Summary', bullets: 'Key Points' };
+    document.getElementById('result-label').textContent = labels[outputType] || 'Result';
+    document.getElementById('result-content').textContent = result;
+    document.getElementById('result-box').style.display = 'block';
+    document.getElementById('result-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setProgress(100);
+
+  } catch (err) {
+    showError('Network error. Please try again.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Summarize Transcript';
+    setTimeout(() => {
+      document.getElementById('progress-wrap').style.display = 'none';
+      setProgress(0);
+    }, 500);
+  }
+}
+
+function copyResult() {
+  const text = document.getElementById('result-content').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-box');
+  el.textContent = msg;
+  el.style.display = msg ? 'block' : 'none';
+}
+
+function setProgress(pct) {
+  document.getElementById('progress-bar').style.width = pct + '%';
+}
+</script>
+</body>
+</html>
