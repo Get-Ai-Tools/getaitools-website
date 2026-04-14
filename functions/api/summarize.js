@@ -5,7 +5,7 @@
 
 export async function onRequestPost(context) {
   try {
-    const { apiKey, text, outputType, model } = await context.request.json();
+    const { apiKey, text, outputType, model, customInstructions } = await context.request.json();
 
     if (!apiKey || !text) {
       return json({ error: 'Missing apiKey or text' }, 400);
@@ -17,7 +17,10 @@ export async function onRequestPost(context) {
       takeaways:  'What are the most important takeaways from this document? List the top 5-8 actionable insights or conclusions a reader should remember.'
     };
 
-    const prompt = prompts[outputType] || prompts.summary;
+    const basePrompt = prompts[outputType] || prompts.summary;
+    const prompt = customInstructions
+      ? `${basePrompt}\n\nAdditional instructions: ${customInstructions}`
+      : basePrompt;
     const truncated = text.slice(0, 80000); // stay within context limits
 
     const anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {

@@ -252,6 +252,16 @@
     </div>
   </div>
 
+  <!-- Custom instructions -->
+  <div style="margin-bottom:1.5rem">
+    <label style="font-size:0.78rem;font-weight:700;color:var(--ink3);display:block;margin-bottom:0.4rem">
+      Custom instructions <span style="font-weight:400;color:var(--ink4)">(optional)</span>
+    </label>
+    <textarea id="custom-instructions" placeholder='e.g. "Focus on financial figures" or "Summarize for a non-technical audience"'
+      style="width:100%;padding:0.6rem 0.85rem;border:1px solid var(--line);border-radius:5px;font-size:0.85rem;font-family:var(--font);color:var(--ink);background:var(--white);outline:none;resize:vertical;min-height:72px;line-height:1.5;transition:border-color 0.12s"
+      onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--line)'"></textarea>
+  </div>
+
   <!-- Drop zone -->
   <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
     <input type="file" id="file-input" accept=".pdf" style="display:none" onchange="handleFile(this.files[0])"/>
@@ -478,6 +488,7 @@ async function summarize() {
 
   const outputType = document.getElementById('output-type').value;
   const model = document.getElementById('model').value;
+  const customInstructions = document.getElementById('custom-instructions').value.trim();
   const btn = document.getElementById('summarize-btn');
 
   showError('');
@@ -491,7 +502,7 @@ async function summarize() {
     const res = await fetch('/api/summarize', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ apiKey, text: extractedText, outputType, model })
+      body: JSON.stringify({ apiKey, text: extractedText, outputType, model, customInstructions })
     });
 
     setProgress(90);
