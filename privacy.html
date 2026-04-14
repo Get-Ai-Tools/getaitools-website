@@ -49,12 +49,10 @@
   </ul>
 
   <h2>The tools themselves</h2>
-  <p>All tools listed on GetAITools.dev are open source Python scripts hosted on GitHub. When you use them:</p>
+  <p>Tools are available in two forms:</p>
   <ul>
-    <li>They run entirely on your local machine</li>
-    <li>Your API keys are stored locally in your environment or config files</li>
-    <li>Your data (documents, URLs, prompts) never passes through our servers</li>
-    <li>API calls go directly from your machine to Anthropic or other providers</li>
+    <li><strong>Python scripts (GitHub)</strong> - Run entirely on your local machine. Your API keys and data never pass through our servers. API calls go directly from your machine to Anthropic.</li>
+    <li><strong>Browser tools</strong> - Your API key is stored in your browser's localStorage only. When you run a tool, your browser sends your key and input to a thin Cloudflare proxy function that immediately forwards the request to Anthropic and returns the result. Nothing is logged or stored on our end. The proxy source code is <a href="https://github.com/Get-Ai-Tools/getaitools-website/tree/master/functions/api" target="_blank" style="color:var(--green)">publicly available on GitHub</a>.</li>
   </ul>
 
   <h2>Third-party services</h2>
