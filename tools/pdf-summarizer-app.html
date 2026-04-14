@@ -227,6 +227,7 @@
       <input type="password" id="api-key" class="api-key-input" placeholder="sk-ant-api03-..." autocomplete="off"/>
       <button class="btn-sm" onclick="toggleKeyVisibility()">Show</button>
       <button class="btn-sm" onclick="saveKey()" style="background:var(--ink);color:#fff;border-color:var(--ink)">Save</button>
+      <button class="btn-sm" onclick="clearKey()" style="color:#dc2626;border-color:#fecaca">Clear</button>
     </div>
     <div class="api-key-saved" id="key-saved">Key saved to your browser.</div>
     <p class="api-key-hint">Your key is saved in your browser only - never sent to our servers. Need a key? <a href="https://console.anthropic.com" target="_blank">Get one free at console.anthropic.com</a></p>
@@ -412,6 +413,15 @@ function saveKey() {
   const el = document.getElementById('key-saved');
   el.style.display = 'block';
   el.textContent = 'Key saved to your browser.';
+}
+
+function clearKey() {
+  localStorage.removeItem('anthropic_api_key');
+  document.getElementById('api-key').value = '';
+  const el = document.getElementById('key-saved');
+  el.style.display = 'block';
+  el.textContent = 'Key cleared from your browser.';
+  setTimeout(() => el.style.display = 'none', 3000);
 }
 
 function toggleKeyVisibility() {
